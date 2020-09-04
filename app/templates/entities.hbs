@@ -1,0 +1,7 @@
+{{#each @model as |entity|}}
+    <LinkTo @route="entities.entity" @model={{entity.id}}>
+        <div>{{entity.name}}</div>
+    </LinkTo>
+{{/each}}
+
+{{outlet}}
