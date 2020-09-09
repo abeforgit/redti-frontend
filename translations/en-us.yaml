@@ -1,0 +1,16 @@
+hello:
+  world: Hello World!
+
+redti: Redti
+
+item:
+  name: Name
+  description: Description
+  new: New Item
+  unit: Unit
+  quantity: Quantity
+container:
+  new: New Container
+items: Items
+save: Save
+add: Add

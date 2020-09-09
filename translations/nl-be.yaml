@@ -1,0 +1,15 @@
+hello:
+  world: Hallo Wereld!
+redti: Redti
+
+item:
+  name: Naam
+  description: Beschrijving
+  new: Nieuw Item
+  unit: Eenheid
+  quantity: Hoeveelheid
+container:
+  new: Nieuwe Container
+items: Items
+save: Opslaan
+add: Voeg Toe

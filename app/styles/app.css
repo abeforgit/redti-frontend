@@ -1,0 +1,7 @@
+@import "ember-modal-dialog/ember-modal-structure.css";
+@import "ember-modal-dialog/ember-modal-appearance.css";
+
+/* bit of a hack */
+.h-88 {
+  height: 88%;
+}

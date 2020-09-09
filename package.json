@@ -38,13 +38,16 @@
     "ember-data": "~3.20.0",
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^8.0.1",
+    "ember-intl": "^5.4.2",
     "ember-load-initializers": "^2.1.1",
     "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-modal-dialog": "^3.0.1",
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^8.0.0",
     "ember-set-helper": "^1.1.0",
     "ember-source": "~3.20.2",
     "ember-template-lint": "^2.9.1",
+    "ember-test-selectors": "^5.0.0",
     "eslint": "^7.5.0",
     "eslint-plugin-ember": "^8.9.1",
     "eslint-plugin-node": "^11.1.0",
@@ -57,5 +60,9 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "purecss": "^2.0.3",
+    "sinon": "^9.0.3"
   }
 }

@@ -1,0 +1,8 @@
+<span class="code f3 pv2 pl2 pointer">
+    <span data-test-marker class={{if this.active "red" ""}}>></span>
+    <LinkTo class="black no-underline"
+        @route="items.item"
+        @model={{@item.id}} >
+        {{@item.name}}
+    </LinkTo>
+</span>

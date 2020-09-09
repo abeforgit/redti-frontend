@@ -1,0 +1,14 @@
+<aside class="w-100 w-25-l absolute-l bottom-0-l top-0-l left-0-l flex flex-column br-l bw1 w5">
+    <div class="flex pa2 bb">
+        <LinkTo @route="items.new" class="pr2">
+            <Button class="b--green">
+                {{t "item.new"}}
+            </Button>
+        </LinkTo>
+        <Button class="b--orange">{{t "container.new"}}</Button>
+    </div>
+
+    {{#each @items as |item|}}
+        <SidebarItem @item={{item}}/>
+    {{/each}}
+</aside>

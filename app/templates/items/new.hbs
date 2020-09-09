@@ -1,0 +1,16 @@
+<ModalDialog
+    @targetAttachment="center"
+    @translucentOverlay={{true}}
+                       @onClose={{this.goBack}}
+>
+    <h1 class="ph5 tac f1 helvetica">{{t "item.new"}}</h1>
+    <div class="pa4 flex flex-column">
+
+        <Input::Text @label={{t "item.name"}} @value={{this.name}} />
+        <Input::Textarea class="self-center" @label={{t "item.description"}} @value={{this.description}} />
+        <Input::Text @label={{t "item.unit"}} @value={{this.unit}} />
+        <Input::Number @label={{t "item.quantity"}} @value={{this.quantity}} />
+
+        <Button class="b--green" {{on "click" this.addItem}}>{{t "add"}}</Button>
+    </div>
+</ModalDialog>

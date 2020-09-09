@@ -1,6 +1,8 @@
-import Model, { attr, belongsTo } from '@ember-data/model';
+import Model, { attr, belongsTo } from "@ember-data/model";
 
 export default class ItemModel extends Model {
-    @attr name;
-    @belongsTo('entity') owner;
+  @attr name;
+  @attr description;
+  @attr unit;
+  @attr quantity;
 }
