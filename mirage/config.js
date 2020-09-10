@@ -19,6 +19,26 @@ export default function () {
 
     https://www.ember-cli-mirage.com/docs/route-handlers/shorthands
   */
-  this.get("/items");
+  function filterable(resourceName, attrs) {
+    return (schema, request) => {
+      let filters = attrs.reduce((hash, attr) => {
+        let val = request.queryParams[`filter[${attr}]`];
+        if (val) {
+          hash[attr] = val;
+        }
+
+        return hash;
+      }, {});
+
+      return schema[resourceName].where(filters);
+    };
+  }
+  this.get("/items", (schema, request) => {
+    let val = request.queryParams["filter[:has-no:parent]"];
+    if (val) {
+      return schema.items.where((item) => item.parentId === null);
+    }
+    return schema.items.all();
+  });
   this.get("/items/:id");
 }

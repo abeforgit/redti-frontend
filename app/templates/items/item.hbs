@@ -11,4 +11,9 @@
     <div>
         {{@model.quantity}}
     </div>
+    {{#each @model.children as |child|}}
+        <div>
+            {{child.name}}
+        </div>
+    {{/each}}
 </div>

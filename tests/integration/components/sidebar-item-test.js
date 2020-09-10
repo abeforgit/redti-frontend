@@ -10,7 +10,7 @@ module("Integration | Component | sidebar-item", function (hooks) {
     sinon.restore();
   });
 
-  test("it renders with red marker when selected", async function (assert) {
+  test("it is red  when selected", async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
@@ -19,10 +19,10 @@ module("Integration | Component | sidebar-item", function (hooks) {
     this.owner.lookup("service:router").isActive = sinon.fake.returns(true);
     await render(hbs`<SidebarItem @item={{item}}/>`);
 
-    assert.dom("[data-test-marker]").hasClass("red");
+    assert.dom("[data-test-sidebaritem-link]").hasClass("red");
     assert.ok(this.element.textContent.includes("test"));
   });
-  test("it renders with black marker when not selected", async function (assert) {
+  test("it is not red when not selected", async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
@@ -31,7 +31,7 @@ module("Integration | Component | sidebar-item", function (hooks) {
     this.owner.lookup("service:router").isActive = sinon.fake.returns(false);
     await render(hbs`<SidebarItem @item={{item}}/>`);
 
-    assert.dom("[data-test-marker]").doesNotHaveClass("red");
+    assert.dom("[data-test-sidebaritem-link]").doesNotHaveClass("red");
     assert.ok(this.element.textContent.includes("test"));
   });
 });

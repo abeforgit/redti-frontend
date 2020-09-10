@@ -1,8 +1,34 @@
 <span class="code f3 pv2 pl2 pointer">
-    <span data-test-marker class={{if this.active "red" ""}}>></span>
-    <LinkTo class="black no-underline"
-        @route="items.item"
-        @model={{@item.id}} >
-        {{@item.name}}
-    </LinkTo>
+    <Dropzone >
+    {{#if @item.container}}
+        <span data-test-marker >
+            <button type="button" class="bn bg-white pointer"
+                    {{on "click" this.toggle}} >
+                {{#if this.open}}
+                    <FaIcon class="black hover-red" @icon="angle-down"/>
+                {{else}}
+                    <FaIcon class="black hover-red" @icon="angle-right"/>
+                {{/if}}
+            </button>
+        </span>
+    {{/if}}
+    <Draggable>
+        <LinkTo
+            data-test-sidebaritem-link
+            class={{concat "no-underline" (if this.active " red" " black")}}
+                  @route="items.item"
+            @model={{@item.id}}
+            {{on "click" this.expand}}
+        >
+            {{@item.name}}
+        </LinkTo>
+    </Draggable>
+    {{#if this.open}}
+        <div class="flex flex-column">
+            {{#each @item.children as |child| }}
+                <SidebarItem @item={{child}}/>
+            {{/each}}
+        </div>
+    {{/if}}
+    </Dropzone>
 </span>
