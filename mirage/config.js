@@ -33,12 +33,16 @@ export default function () {
       return schema[resourceName].where(filters);
     };
   }
-  this.get("/items", (schema, request) => {
-    let val = request.queryParams["filter[:has-no:parent]"];
-    if (val) {
-      return schema.items.where((item) => item.parentId === null);
-    }
-    return schema.items.all();
-  });
+  function filterByAssoc(resourceName, assoc) {
+    return (schema, request) => {
+      let val = request.queryParams[`filter[${assoc}]`];
+      let hash = {};
+      if (val) {
+        hash[`${assoc}Id`] = val;
+        return schema[resourceName].where(hash);
+      }
+    };
+  }
+  this.get("/items", filterByAssoc("items", "parent"));
   this.get("/items/:id");
 }

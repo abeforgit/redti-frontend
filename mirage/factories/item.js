@@ -17,4 +17,10 @@ export default Factory.extend({
   },
   container: false,
   parent: null,
+  afterCreate(item, server) {
+    if (!item.parent) {
+      let root = server.schema.items.find("root");
+      item.update({ parent: root });
+    }
+  },
 });

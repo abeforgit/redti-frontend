@@ -1,3 +1,4 @@
+import shared from "./shared";
 export default function (server) {
   /*
     Seed your development database using your factories.
@@ -5,8 +6,9 @@ export default function (server) {
   */
   // server.createList('post', 10);
   // server.createList("item", 10);
+  let root = shared(server);
   server
-    .createList("item", 5, { container: true, parent: null })
+    .createList("item", 5, { container: true, parent: root })
     .forEach((item) => {
       server
         .createList("item", 3, { container: true, parent: item })
