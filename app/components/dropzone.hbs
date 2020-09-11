@@ -1,10 +1,12 @@
 <div
     {{on "drop" this.dropItem}}
     {{on "dragover" this.dragOver}}
-    {{on "dragleave" this.dropLeave}}
     {{on "dragenter" this.dropEnter}}
+    {{on "dragleave" this.dropLeave}}
     class="dib"
     ...attributes
 >
-{{yield}}
+    <div>
+        {{yield}}
+    </div>
 </div>

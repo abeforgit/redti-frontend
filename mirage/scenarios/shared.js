@@ -5,5 +5,4 @@ export default function (server) {
     name: "root",
   });
   root.update({ parent: null });
-  return root;
 }

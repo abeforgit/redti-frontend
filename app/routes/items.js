@@ -1,9 +1,13 @@
 import Route from "@ember/routing/route";
+import { inject as service } from "@ember/service";
 
 export default class ItemsRoute extends Route {
+  @service itemManager;
+
   async model() {
-    return this.store.query("item", {
-      filter: { parent: "root" },
+    let root = await this.store.findRecord("item", "root", {
+      include: "children",
     });
+    return root.children;
   }
 }

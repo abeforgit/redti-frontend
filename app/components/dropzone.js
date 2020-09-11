@@ -5,23 +5,30 @@ export default class DropzoneComponent extends Component {
   @action
   dropItem(dragEvent) {
     dragEvent.preventDefault();
-    console.log("Item dropped");
-    this.params.dropItem ?? this.params.dropItem();
+    let type = this.args.contentType ?? "application/json";
+    let data = dragEvent.dataTransfer.getData(type);
+    if (type === "application/json") {
+      data = JSON.parse(data);
+    }
+    console.log(data);
+    this.args.dropItem && this.args.dropItem(data);
   }
   @action
   dragOver(dragEvent) {
     dragEvent.preventDefault();
     dragEvent.dataTransfer.dropEffect = "move";
-    this.params.dragOver ?? this.params.dragOver();
+    this.args.dragOver && this.args.dragOver();
   }
   @action
-  dropEnter() {
+  dropEnter(dragEvent) {
+    dragEvent.preventDefault();
     console.log("enter drop zone");
-    this.params.dropEnter ?? this.params.dropEnter();
+    this.args.dropEnter && this.args.dropEnter();
   }
   @action
-  dropLeave() {
+  dropLeave(dragEvent) {
+    dragEvent.preventDefault();
     console.log("leave drop zone");
-    this.params.dropLeave ?? this.params.dropLeave();
+    this.args.dropLeave && this.args.dropLeave();
   }
 }
