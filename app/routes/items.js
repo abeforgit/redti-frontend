@@ -6,7 +6,7 @@ export default class ItemsRoute extends Route {
 
   async model() {
     let root = await this.store.findRecord("item", "root", {
-      include: "children",
+      include: "children,children.children",
     });
     return root.children;
   }

@@ -32,6 +32,9 @@ export default class SidebarContainerComponent extends Component {
   changeParent(itemId) {
     this.underDrag = 0;
     this.itemManager.reparent(itemId, this.args.item.id);
+    if (this.timer !== null) {
+      cancel(this.timer);
+    }
   }
   @action
   dropEnter() {
