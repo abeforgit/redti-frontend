@@ -3,6 +3,7 @@ import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 import { inject as service } from "@ember/service";
 import { get } from "@ember/object";
+import { later, cancel } from "@ember/runloop";
 
 export default class SidebarContainerComponent extends Component {
   @service router;
@@ -10,6 +11,7 @@ export default class SidebarContainerComponent extends Component {
 
   @tracked open;
   @tracked underDrag = 0;
+  timer = null;
 
   constructor() {
     super(...arguments);
@@ -34,10 +36,19 @@ export default class SidebarContainerComponent extends Component {
   @action
   dropEnter() {
     this.underDrag++;
+    if (this.timer === null && !this.open) {
+      this.timer = later(() => {
+        this.expand();
+        this.timer = null;
+      }, 500);
+    }
   }
   @action
   dropLeave() {
     this.underDrag--;
+    if (this.underDrag <= 0 && this.timer !== null) {
+      cancel(this.timer);
+    }
   }
 
   get active() {
