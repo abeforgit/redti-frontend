@@ -1,0 +1,28 @@
+<div>
+    <div>
+
+        <h1 class="dib">
+            <Input::Text @label={{t "item.name"}} @value={{this.name}}/>
+
+        </h1>
+        <div class="dib fr">
+            <Button type="button" class="b--green">{{t "save"}}</Button>
+            <LinkTo @route="items.item" @model={{@model.id}}>
+            <Button type="button" class="b--red">{{t "cancel"}}</Button>
+            </LinkTo>
+
+        </div>
+    </div>
+    <p>
+        {{@model.description}}
+    </p>
+    <div>
+        <span>
+            {{@model.quantity}}
+        </span>
+        <span>
+            {{@model.unit}}
+        </span>
+    </div>
+
+</div>

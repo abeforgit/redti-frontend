@@ -1,8 +1,8 @@
 <Sidebar>
     {{#each @model as |location|}}
-        <SidebarItem @item={{location}}/>
-
+        <Sidebar::Location @location={{location}}/>
     {{/each}}
-
 </Sidebar>
+<div class="w-75 fr">
 {{outlet}}
+</div>

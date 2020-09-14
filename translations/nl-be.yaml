@@ -10,7 +10,10 @@ item:
   quantity: Hoeveelheid
 container:
   new: Nieuwe Container
+  contents: Inhoud
 items: Items
 locations: Locaties
 save: Opslaan
 add: Voeg Toe
+edit: Bewerken
+cancel: Annuleren

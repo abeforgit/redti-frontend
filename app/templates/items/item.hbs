@@ -1,24 +1,32 @@
 <div class="pa4">
-    <div>
-        {{@model.name}}
-    </div>
-    <div>
-        {{@model.description}}
-    </div>
-    <div>
-        {{@model.unit}}
-    </div>
-    <div>
-        {{@model.quantity}}
-    </div>
-    {{#each @model.transfers as |transfer|}}
-        <div>
-            {{transfer.to.name}}
+
+{{outlet}}
+<div >
+    {{#if @model.container}}
+        <h2>{{t "container.contents"}}</h2>
+        <div class="db flex-l flex-column-l">
+
+            <div class="bb bw1"/>
+
+            {{#each @model.children as |child|}}
+                <div class="db flex-l justify-between w-100 bl bb bw1">
+                    <LinkTo @route="items.item" @model={{child.id}} class="pa2 br bw1 w-100 tc">
+                        {{child.name}}
+                    </LinkTo>
+                    {{#unless child.container}}
+                        <span class="pa2 bw1 br w-100 tr" >{{child.quantity}}</span>
+                        <span class="pa2 br bw1 w-100 tl">{{child.unit}}</span>
+                    {{/unless}}
+                </div>
+            {{/each}}
         </div>
-    {{/each}}
-    {{#each @model.children as |child|}}
-        <div>
-            {{child.name}}
-        </div>
-    {{/each}}
+    {{/if}}
+
+</div>
+{{#each @model.transfers as |transfer|}}
+    <div>
+        {{transfer.to.name}}
+    </div>
+{{/each}}
+
 </div>

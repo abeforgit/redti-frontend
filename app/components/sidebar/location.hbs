@@ -1,0 +1,16 @@
+<Sidebar::Collapsible as |collapsible|>
+    <collapsible.header>
+        <Sidebar::Link @route="locations.location" @model={{@location.id}}>
+            {{@location.name}}
+        </Sidebar::Link>
+    </collapsible.header>
+    <collapsible.body>
+        <!-- {{#each @location as |item|}}
+             {{#if item.container}}
+             <Sidebar::ItemContainer @item={{item}}/>
+             {{else}}
+             <Sidebar::Item @item={{item}} />
+             {{/if}}
+             {{/each}} -->
+    </collapsible.body>
+</Sidebar::Collapsible>

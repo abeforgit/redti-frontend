@@ -1,0 +1,23 @@
+<div>
+    <div>
+
+        <h1 class="dib">
+            {{@model.name}}
+        </h1>
+        <LinkTo @route="items.item.edit" @model={{@model.id}} class="dib fr">
+            <Button type="button">{{t "edit"}}</Button>
+        </LinkTo>
+    </div>
+    <p>
+        {{@model.description}}
+    </p>
+    <div>
+        <span>
+            {{@model.quantity}}
+        </span>
+        <span>
+            {{@model.unit}}
+        </span>
+    </div>
+
+</div>
