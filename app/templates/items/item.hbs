@@ -11,6 +11,11 @@
     <div>
         {{@model.quantity}}
     </div>
+    {{#each @model.transfers as |transfer|}}
+        <div>
+            {{transfer.to.name}}
+        </div>
+    {{/each}}
     {{#each @model.children as |child|}}
         <div>
             {{child.name}}

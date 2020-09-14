@@ -1,4 +1,4 @@
-import { Factory } from "ember-cli-mirage";
+import { Factory, association } from "ember-cli-mirage";
 
 export default Factory.extend({
   name(i) {
@@ -22,5 +22,10 @@ export default Factory.extend({
       let root = server.schema.items.find("root");
       item.update({ parent: root });
     }
+    let home = server.schema.locations.find("homebase");
+    let initial = server.create("transfer", {
+      to: home,
+      item,
+    });
   },
 });

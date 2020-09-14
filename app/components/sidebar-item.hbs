@@ -1,12 +1,3 @@
 <span class="code f4 pv1 pl4 pointer">
-    <Draggable @content={{@item.id}} @contentType="text/plain">
-        <LinkTo
-            data-test-sidebaritem-link
-            class={{concat "no-underline" (if this.active " red" " black")}}
-                  @route="items.item"
-            @model={{@item.id}}
-        >
-            {{@item.name}}
-        </LinkTo>
-    </Draggable>
+    {{yield}}
 </span>

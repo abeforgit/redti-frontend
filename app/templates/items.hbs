@@ -1,4 +1,24 @@
-<Sidebar @items={{@model}}/>
+<Sidebar >
+    <div class="flex pa2">
+        <LinkTo @route="items.new" class="pr2">
+            <Button class="b--green">
+                {{t "item.new"}}
+            </Button>
+        </LinkTo>
+        <Button class="b--orange">{{t "container.new"}}</Button>
+    </div>
+
+    <div class="pt2 flex flex-column">
+
+    {{#each @model.children as |item|}}
+        {{#if item.container}}
+            <Sidebar::ItemContainer @item={{item}}/>
+        {{else}}
+            <Sidebar::Item @item={{item}} />
+        {{/if}}
+    {{/each}}
+    </div>
+</Sidebar>
 <div class="w-75 fr">
 {{outlet}}
 </div>

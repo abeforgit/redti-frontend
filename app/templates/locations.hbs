@@ -1,0 +1,8 @@
+<Sidebar>
+    {{#each @model as |location|}}
+        <SidebarItem @item={{location}}/>
+
+    {{/each}}
+
+</Sidebar>
+{{outlet}}

@@ -46,4 +46,7 @@ export default function () {
   this.get("/items", filterByAssoc("items", "parent"));
   this.get("/items/:id");
   this.patch("/items/:id");
+  this.resource("locations");
+  this.resource("addresses");
+  this.resource("transfers");
 }

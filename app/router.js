@@ -11,4 +11,5 @@ Router.map(function () {
     this.route("new");
     this.route("item", { path: ":item_id" });
   });
+  this.route('locations');
 });

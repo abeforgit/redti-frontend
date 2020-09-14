@@ -1,0 +1,9 @@
+<LinkTo
+    data-test-sidebaritem-link
+    class={{concat "code f4 pv1 pl4 pointer no-underline" (if this.active " red" " black")}}
+          @route={{@route}}
+    @model={{@model}}
+          ...attributes
+>
+    {{yield}}
+</LinkTo>

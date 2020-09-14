@@ -14,4 +14,5 @@ export default function (server) {
       .createList("item", 3, { container: true, parent: item })
       .forEach((item) => server.createList("item", 2, { parent: item }));
   });
+  server.createList("location", 5);
 }

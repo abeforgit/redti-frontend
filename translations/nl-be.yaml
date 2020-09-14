@@ -11,5 +11,6 @@ item:
 container:
   new: Nieuwe Container
 items: Items
+locations: Locaties
 save: Opslaan
 add: Voeg Toe

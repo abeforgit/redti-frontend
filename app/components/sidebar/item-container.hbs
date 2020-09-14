@@ -1,0 +1,24 @@
+<Sidebar::Collapsible @open={{this.open}} @toggle={{this.toggle}} as |collapsible| >
+    <collapsible.header>
+        <Dropzone
+            @contentType="text/plain"
+            @dropItem={{this.changeParent}}
+                          @dropEnter={{this.dropEnter}}
+            @dropLeave={{this.dropLeave}}
+                          class= {{if (gt this.underDrag 0) "ba bw1 b--black" "ba bw1 b--transparent"}}
+        >
+            <Sidebar::Item @item={{@item}} {{on "click" this.toggle}}/>
+        </Dropzone>
+    </collapsible.header>
+    <collapsible.body>
+        <div class="flex flex-column pl2">
+            {{#each @item.children as |child| }}
+                {{#if child.container}}
+                    <Sidebar::ItemContainer @item={{child}}/>
+                {{else}}
+                    <Sidebar::Item @item={{child}}/>
+                {{/if}}
+            {{/each}}
+        </div>
+    </collapsible.body>
+</Sidebar::Collapsible>
