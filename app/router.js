@@ -14,6 +14,8 @@ Router.map(function () {
     });
   });
   this.route("locations", function () {
-    this.route("location", { path: ":location_id" });
+    this.route("location", { path: ":location_id" }, function() {
+      this.route('transfers');
+    });
   });
 });

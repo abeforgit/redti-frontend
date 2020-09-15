@@ -19,10 +19,20 @@ export default function () {
 
     https://www.ember-cli-mirage.com/docs/route-handlers/shorthands
   */
+
+  /**
+   * Returns a function which implements basic filtering for mirage routes
+   * @param {string} resourceName
+   * @param {string[]} attrs
+   */
   function filterable(resourceName, attrs) {
     return (schema, request) => {
       let filters = attrs.reduce((hash, attr) => {
-        let val = request.queryParams[`filter[${attr}]`];
+        let cleaned = attr;
+        if (attr.substring(attr.length - 2) == "Id") {
+          cleaned = attr.substring(0, attr.length - 2);
+        }
+        let val = request.queryParams[`filter[${cleaned}]`];
         if (val) {
           hash[attr] = val;
         }
@@ -48,5 +58,6 @@ export default function () {
   this.patch("/items/:id");
   this.resource("locations");
   this.resource("addresses");
-  this.resource("transfers");
+  this.resource("transfers", { except: "index" });
+  this.get("/transfers", filterable("transfers", ["toId", "fromId"]));
 }

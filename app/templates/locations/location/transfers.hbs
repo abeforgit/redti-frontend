@@ -1,0 +1,18 @@
+<h2>{{t "location.inbox"}}</h2>
+{{#each @model.inbox as |inTransfer|}}
+    <div class="flex justify-between bt bw1">
+        <span>{{inTransfer.item.name}}</span>
+        <span>{{inTransfer.from.name}}</span>
+        <span>{{inTransfer.to.name}}</span>
+        <span>{{inTransfer.on}}</span>
+    </div>
+{{/each}}
+<h2>{{t "location.outbox"}}</h2>
+{{#each @model.outbox as |outTransfer|}}
+    <div class="flex justify-between bt bw1">
+        <span>{{outTransfer.item.name}}</span>
+        <span>{{outTransfer.from.name}}</span>
+        <span>{{outTransfer.to.name}}</span>
+        <span>{{outTransfer.on}}</span>
+    </div>
+{{/each}}

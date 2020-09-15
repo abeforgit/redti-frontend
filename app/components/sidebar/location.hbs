@@ -13,10 +13,12 @@
         </Dropzone>
     </collapsible.header>
     <collapsible.body>
+        <div class="flex flex-column">
         {{#each @location.items as |item|}}
             {{#if item.container}}
                 <Sidebar::Item @item={{item}} />
             {{/if}}
         {{/each}}
+        </div>
     </collapsible.body>
 </Sidebar::Collapsible>

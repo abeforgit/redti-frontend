@@ -14,6 +14,7 @@ container:
 location:
   inbox: Binnenkomende transfers
   outbox: Uitgaande transfers
+  goToTransfers: Bekijk transfers
 items: Items
 locations: Locaties
 save: Opslaan
