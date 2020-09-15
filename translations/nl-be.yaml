@@ -15,6 +15,7 @@ location:
   inbox: Binnenkomende transfers
   outbox: Uitgaande transfers
   goToTransfers: Bekijk transfers
+  new: Nieuwe Locatie
 items: Items
 locations: Locaties
 save: Opslaan

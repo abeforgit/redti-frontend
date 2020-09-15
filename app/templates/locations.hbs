@@ -1,4 +1,11 @@
 <Sidebar>
+    <div>
+        <LinkTo @route="locations.new">
+            <Button type="button">
+                {{t "location.new"}}
+            </Button>
+        </LinkTo>
+    </div>
     {{#each @model as |location|}}
         <Sidebar::Location @location={{location}}/>
     {{/each}}

@@ -1,0 +1,15 @@
+<ModalDialog
+    @targetAttachment="center"
+    @translucentOverlay={{true}}
+                       @onClose={{this.goBack}}
+>
+    <h1 class="ph5 tac f1 helvetica">{{t "location.new"}}</h1>
+    <div class="pa4 flex flex-column">
+
+        <Input::Text @label={{t "location.name"}} @value={{this.name}} />
+        <Input::Textarea class="self-center" @label={{t "location.description"}}
+                                @value={{this.description}} />
+
+        <Button class="b--green" {{on "click" this.addLocation}}>{{t "add"}}</Button>
+    </div>
+</ModalDialog>
