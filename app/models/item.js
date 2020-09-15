@@ -8,5 +8,6 @@ export default class ItemModel extends Model {
   @attr container;
   @hasMany("item", { inverse: "parent" }) children;
   @belongsTo("item", { inverse: "children" }) parent;
+  @belongsTo("location", { inverse: "items" }) currentLocation;
   @hasMany("transfer") transfers;
 }

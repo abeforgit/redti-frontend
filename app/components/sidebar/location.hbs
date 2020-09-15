@@ -1,16 +1,22 @@
-<Sidebar::Collapsible as |collapsible|>
+<Sidebar::Collapsible @open={{this.open}} @toggle={{this.toggle}} as |collapsible|>
     <collapsible.header>
-        <Sidebar::Link @route="locations.location" @model={{@location.id}}>
-            {{@location.name}}
-        </Sidebar::Link>
+        <Dropzone
+            @contentType="text/plain"
+            @dropItem={{this.transferItem}}
+            @dropEnter={{this.dropEnter}}
+            @dropLeave={{this.dropLeave}}
+            class= {{if (gt this.underDrag 0) "ba bw1 b--black" "ba bw1 b--transparent"}}
+        >
+            <Sidebar::Link @route="locations.location" @model={{@location.id}}>
+                {{@location.name}}
+            </Sidebar::Link>
+        </Dropzone>
     </collapsible.header>
     <collapsible.body>
-        <!-- {{#each @location as |item|}}
-             {{#if item.container}}
-             <Sidebar::ItemContainer @item={{item}}/>
-             {{else}}
-             <Sidebar::Item @item={{item}} />
-             {{/if}}
-             {{/each}} -->
+        {{#each @location.items as |item|}}
+            {{#if item.container}}
+                <Sidebar::Item @item={{item}} />
+            {{/if}}
+        {{/each}}
     </collapsible.body>
 </Sidebar::Collapsible>

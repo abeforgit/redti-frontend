@@ -11,6 +11,9 @@ item:
 container:
   new: Nieuwe Container
   contents: Inhoud
+location:
+  inbox: Binnenkomende transfers
+  outbox: Uitgaande transfers
 items: Items
 locations: Locaties
 save: Opslaan

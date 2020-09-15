@@ -13,4 +13,16 @@ export default class ItemManagerService extends Service {
     child.parent = parent;
     await child.save();
   }
+  async transferItem(itemId, locationId) {
+    let item = await this.store.findRecord("item", itemId);
+    let location = await this.store.findRecord("location", locationId);
+    await this.store.createRecord("transfer", {
+      item,
+      to: location,
+      from: item.currentLocation,
+      on: new Date().toISOString(),
+    });
+    item.currentLocation = location;
+    await item.save();
+  }
 }
