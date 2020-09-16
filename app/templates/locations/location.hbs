@@ -1,9 +1,3 @@
-<div>
-    {{@model.name}}
+<div class="pa3">
+    {{outlet}}
 </div>
-<LinkTo @route="locations.location.transfers" @model={{@model.id}}>
-    <Button type="button">
-        {{t "location.goToTransfers"}}
-    </Button>
-</LinkTo>
-{{outlet}}

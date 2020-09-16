@@ -12,10 +12,18 @@ container:
   new: Nieuwe Container
   contents: Inhoud
 location:
+  name: Naam
   inbox: Binnenkomende transfers
   outbox: Uitgaande transfers
+  description: Beschrijving
   goToTransfers: Bekijk transfers
   new: Nieuwe Locatie
+address:
+  street: Straat & Huisnr.
+  city: Stad
+  postalCode: Postcode
+  region: Provincie
+  country: Land
 items: Items
 locations: Locaties
 save: Opslaan

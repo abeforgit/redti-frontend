@@ -9,7 +9,11 @@
         <Input::Text @label={{t "location.name"}} @value={{this.name}} />
         <Input::Textarea class="self-center" @label={{t "location.description"}}
                                 @value={{this.description}} />
+        <Forms::Address
+            class="pv2"
+            @autoSubmit={{true}}
+            @onSubmit={{this.setAddress}}/>
 
-        <Button class="b--green" {{on "click" this.addLocation}}>{{t "add"}}</Button>
+        <Button class="b--green mv2" {{on "click" this.addLocation}}>{{t "add"}}</Button>
     </div>
 </ModalDialog>

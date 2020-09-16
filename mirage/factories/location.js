@@ -8,5 +8,7 @@ export default Factory.extend({
   description() {
     return faker.lorem.paragraph();
   },
+  latitude: 51.267025,
+  longitude: 5.083918,
   address: association(),
 });

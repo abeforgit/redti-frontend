@@ -1,0 +1,26 @@
+<div class="w5 h5" ...attributes>
+<LeafletMap class="w-100 h-100" @lat={{this.lat}} @lng={{this.lng}} @zoom={{this.zoom}} ...attributes as |layers| >
+    <layers.tile @url="http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"/>
+    <layers.marker @lat={{this.lat}} @lng={{this.lng}} as |marker|>
+        <marker.popup>
+            <h3>{{@location.name}}</h3>
+            <h4>{{@location.address.street}}</h4>
+            <div>
+                {{@location.address.city}}
+            </div>
+            <div>
+                <div>
+                    {{@location.address.postalCode}}
+                </div>
+                <div>
+                    {{@location.address.region}}
+                </div>
+            </div>
+            <div>
+                {{@location.address.country}}
+            </div>
+
+        </marker.popup>
+    </layers.marker>
+</LeafletMap>
+</div>

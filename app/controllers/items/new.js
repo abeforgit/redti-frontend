@@ -7,7 +7,7 @@ export default class ItemsNewController extends Controller {
 
   @action
   goBack() {
-    this.router.transitionTo("items");
+    history.back();
   }
 
   @action
