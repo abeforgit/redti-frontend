@@ -6,6 +6,7 @@ import { later, cancel } from "@ember/runloop";
 
 export default class SidebarLocationComponent extends Component {
   @service router;
+  @service store;
   @service itemManager;
   @tracked underDrag = 0;
   timer = null;
@@ -18,6 +19,9 @@ export default class SidebarLocationComponent extends Component {
       "locations.location",
       this.args.location.id
     );
+  }
+  get items() {
+    return this.args.location.items;
   }
   @action
   expand() {

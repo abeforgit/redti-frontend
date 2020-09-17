@@ -3,9 +3,9 @@
         <Dropzone
             @contentType="text/plain"
             @dropItem={{this.transferItem}}
-            @dropEnter={{this.dropEnter}}
+                          @dropEnter={{this.dropEnter}}
             @dropLeave={{this.dropLeave}}
-            class= {{if (gt this.underDrag 0) "ba bw1 b--black" "ba bw1 b--transparent"}}
+                          class= {{if (gt this.underDrag 0) "ba bw1 b--black" "ba bw1 b--transparent"}}
         >
             <Sidebar::Link @route="locations.location" @model={{@location.id}}>
                 {{@location.name}}
@@ -14,11 +14,9 @@
     </collapsible.header>
     <collapsible.body>
         <div class="flex flex-column">
-        {{#each @location.items as |item|}}
-            {{#if item.container}}
+            {{#each this.items as |item|}}
                 <Sidebar::Item @item={{item}} />
-            {{/if}}
-        {{/each}}
+            {{/each}}
         </div>
     </collapsible.body>
 </Sidebar::Collapsible>

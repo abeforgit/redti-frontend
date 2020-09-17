@@ -1,7 +1,11 @@
 import Route from "@ember/routing/route";
+import RSVP from "rsvp";
 
 export default class LocationsRoute extends Route {
-  model() {
-    return this.store.findAll("location", { include: "items" });
+  async model() {
+    let locations = await this.store.findAll("location", {
+      include: "items.parent",
+    });
+    return locations;
   }
 }
