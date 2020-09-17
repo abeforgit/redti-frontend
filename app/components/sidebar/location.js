@@ -30,16 +30,20 @@ export default class SidebarLocationComponent extends Component {
   }
   @action
   toggle() {
-    this.router.transitionTo("locations.location", this.args.location.id);
+    this.router.transitionTo(
+      "locations.location",
+      this.args.location.location.id
+    );
     this.open = !this.open;
   }
   @action
-  transferItem(itemId) {
+  async transferItem(itemId) {
     this.underDrag = 0;
-    this.itemManager.transferItem(itemId, this.args.location.id);
+    await this.itemManager.transferItem(itemId, this.args.location.location.id);
     if (this.timer !== null) {
       cancel(this.timer);
     }
+    this.args.didLocationChange();
   }
   @action
   dropEnter() {

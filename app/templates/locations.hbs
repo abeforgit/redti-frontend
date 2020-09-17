@@ -7,7 +7,7 @@
         </LinkTo>
     </div>
     {{#each @model as |location|}}
-        <Sidebar::Location @location={{location}}/>
+        <Sidebar::Location @location={{location}} @didLocationChange={{this.refresh}}/>
     {{/each}}
 </Sidebar>
 <div class="w-75 fr">

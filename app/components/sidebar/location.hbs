@@ -7,14 +7,14 @@
             @dropLeave={{this.dropLeave}}
                           class= {{if (gt this.underDrag 0) "ba bw1 b--black" "ba bw1 b--transparent"}}
         >
-            <Sidebar::Link @route="locations.location" @model={{@location.id}}>
-                {{@location.name}}
+            <Sidebar::Link @route="locations.location" @model={{@location.location.id}}>
+                {{@location.location.name}}
             </Sidebar::Link>
         </Dropzone>
     </collapsible.header>
     <collapsible.body>
         <div class="flex flex-column">
-            {{#each this.items as |item|}}
+            {{#each @location.items as |item|}}
                 <Sidebar::Item @item={{item}} />
             {{/each}}
         </div>
