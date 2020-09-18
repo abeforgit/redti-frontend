@@ -3,7 +3,14 @@ import { tracked } from "@glimmer/tracking";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 import { later, cancel } from "@ember/runloop";
+import Test from "../dropzone";
 
+/**
+ * @typedef {Object} Args
+ * @property {import("../../models/item").default} item
+ */
+
+/** @extends {Component<Args>} */
 export default class SidebarItemContainerComponent extends Component {
   @service router;
   @service itemManager;
@@ -26,6 +33,8 @@ export default class SidebarItemContainerComponent extends Component {
     this.router.transitionTo("items.item", this.args.item.id);
     this.open = !this.open;
   }
+
+  /** @arg {string} itemId */
   @action
   changeParent(itemId) {
     this.underDrag = 0;
