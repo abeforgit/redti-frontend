@@ -1,5 +1,7 @@
 <button class="pointer underline-hover pa2 ba bw2"
-        type="button"
+        type={{this.type}}
+        {{on "click" this.onClick}}
         ...attributes>
     <p class="code ttu tracked">{{yield}}</p>
 </button>
+

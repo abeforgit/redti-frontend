@@ -1,17 +1,24 @@
 <ModalDialog
     @targetAttachment="center"
+    @onClose={{this.goBack}}
     @translucentOverlay={{true}}
-                       @onClose={{this.goBack}}
 >
     <h1 class="ph5 tac f1 helvetica">{{t "item.new"}}</h1>
     <div class="pa4 flex flex-column">
-        <UiForm as |form|>
-            <form.label>
-                Test
-            </form.label>
-            <form.input type="text"/>
-
+        <UiForm @onSubmit={{perform this.addItem}}
+                          @model={{this.newItem}}
+                @validation={{this.newItemValidation}}
+                as |form|>
+            <form.Group @for="name" as |group|>
+                <group.Label>
+                    {{t "item.name"}}
+                </group.Label>
+                <group.Input type="text" />
+                <group.Error/>
+            </form.Group>
+            <form.Submit>
+                {{t "save"}}
+            </form.Submit>
         </UiForm>
-
     </div>
 </ModalDialog>

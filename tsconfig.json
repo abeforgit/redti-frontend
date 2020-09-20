@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
+    "checkJs": true,
     "target": "es2020",
     "allowJs": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
     "alwaysStrict": true,
     "strictNullChecks": true,
-    "strictPropertyInitialization": true,
+    "strictPropertyInitialization": false,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -21,24 +22,11 @@
     "module": "es6",
     "experimentalDecorators": true,
     "paths": {
-      "redti-front/tests/*": [
-        "tests/*"
-      ],
-      "redti-front/mirage/*": [
-        "mirage/*"
-      ],
-      "redti-front/*": [
-        "app/*"
-      ],
-      "*": [
-        "types/*"
-      ]
+      "redti-front/tests/*": ["tests/*"],
+      "redti-front/mirage/*": ["mirage/*"],
+      "redti-front/*": ["app/*"],
+      "*": ["types/*"]
     }
   },
-  "include": [
-    "app/**/*",
-    "tests/**/*",
-    "types/**/*",
-    "mirage/**/*"
-  ]
+  "include": ["app/**/*", "tests/**/*", "types/**/*", "mirage/**/*"]
 }

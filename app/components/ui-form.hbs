@@ -1,0 +1,12 @@
+<form {{on "submit" this.submit}}>
+    {{yield (hash
+      Label=(component "ui-form/label")
+      Input=(component "ui-form/input" model=this.changeSet)
+      Group=(component "ui-form/group" model=this.changeSet )
+      Error=(component "ui-form/error")
+      Submit=(component "button" type="submit" task=this.submitTask)
+      isSubmitting=this.submitTask.isRunning
+      errors=this.changeSet.errors
+      )}}
+
+</form>

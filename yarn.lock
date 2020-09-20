@@ -1266,7 +1266,7 @@
     handlebars "^4.7.4"
     simple-html-tokenizer "^0.5.9"
 
-"@glimmer/tracking@^1.0.0":
+"@glimmer/tracking@^1.0.0", "@glimmer/tracking@^1.0.1":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@glimmer/tracking/-/tracking-1.0.2.tgz#4fe9ca89e3f4a2ae8e37c8bd8e4ea0d886d9abbf"
   integrity sha512-9Vp04TM2IDTShGFdxccfvnmcaj4NwqLrwbOXm4iju5KL/WkeB8mqoCSLtO3kUg+80DqU0pKE8tR460lQP8CutA==
@@ -1434,7 +1434,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/ember-data@^3.16.4":
+"@types/ember-data@*", "@types/ember-data@^3.16.4":
   version "3.16.4"
   resolved "https://registry.yarnpkg.com/@types/ember-data/-/ember-data-3.16.4.tgz#a55d48e37ccfb3574b79376338fb35f94629d008"
   integrity sha512-OfMcYeeUYbNAz2OgwGMrDEDXuexkqKLzl/emColhv1InLiMhKAKdnFIOXckxReE+453mO6HbiAADaVDi3LZKyw==
@@ -1442,6 +1442,13 @@
     "@types/ember" "*"
     "@types/ember__object" "*"
     "@types/rsvp" "*"
+
+"@types/ember-data__model@^3.16.0":
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/@types/ember-data__model/-/ember-data__model-3.16.0.tgz#b4da5f50b18c2c14f91147f3e0afaaca0e3d28c1"
+  integrity sha512-u12r3BJlN8aEbujTo6TvzRNdY+bVA5VhxndC7wWKwmbBFKMHsoqm8eXSc9RVzIYyR9lk839GGgrW8uuTFMYd5g==
+  dependencies:
+    "@types/ember-data" "*"
 
 "@types/ember-qunit@^3.4.9":
   version "3.4.9"
@@ -4969,7 +4976,7 @@ ember-ast-helpers@0.3.5:
     "@glimmer/compiler" "^0.27.0"
     "@glimmer/syntax" "^0.27.0"
 
-ember-auto-import@^1.2.19, ember-auto-import@^1.5.3, ember-auto-import@^1.6.0:
+ember-auto-import@^1.2.19, ember-auto-import@^1.5.2, ember-auto-import@^1.5.3, ember-auto-import@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-1.6.0.tgz#00a498172b04f7084a5d2a327f76f577038ed403"
   integrity sha512-BRBrmbDXRuXG/WYbn/2DXM7bFNyQuT80du1scUrrX0+xFVkDOU08s46ZPCvzYprzSg2htgrztQ/nVdnfbIBV+Q==
@@ -5002,6 +5009,27 @@ ember-auto-import@^1.2.19, ember-auto-import@^1.5.3, ember-auto-import@^1.6.0:
     typescript-memoize "^1.0.0-alpha.3"
     walk-sync "^0.3.3"
     webpack "~4.28"
+
+ember-changeset-validations@^3.9.1:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/ember-changeset-validations/-/ember-changeset-validations-3.9.1.tgz#5f44f56ca9a55ac079f667f8cbead1dfeb85a21d"
+  integrity sha512-aTufViqh4zx8WNjiuxuQNSfYaDLDdXl7mQ6g18z2Wma55kEmGymxaltM3lrGgXK+IlWoJvINrNBd6i6AYRxaYA==
+  dependencies:
+    ember-changeset "^3.9.1"
+    ember-cli-babel "^7.8.0"
+    ember-cli-htmlbars "^4.0.5"
+    ember-get-config "^0.2.4"
+    ember-validators "^2.0.0"
+
+ember-changeset@^3.9.1:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/ember-changeset/-/ember-changeset-3.9.1.tgz#53b50be95364a71f38e68a01c33eba12808cd8a4"
+  integrity sha512-Ntf0fITb2klRZF+5s5xbBQ6HNuSn1IbwppyZPU8v7oh26QOlfjyxYE7QNWM3nZnybHkCrF1iSqN3s8xj3OoFCg==
+  dependencies:
+    "@glimmer/tracking" "^1.0.1"
+    ember-auto-import "^1.5.2"
+    ember-cli-babel "^7.19.0"
+    validated-changeset "~0.9.1"
 
 ember-cli-app-version@^3.2.0:
   version "3.2.0"
@@ -5114,7 +5142,7 @@ ember-cli-htmlbars@^3.0.0, ember-cli-htmlbars@^3.1.0:
     json-stable-stringify "^1.0.1"
     strip-bom "^3.0.0"
 
-ember-cli-htmlbars@^4.2.0, ember-cli-htmlbars@^4.2.3, ember-cli-htmlbars@^4.3.1:
+ember-cli-htmlbars@^4.0.5, ember-cli-htmlbars@^4.2.0, ember-cli-htmlbars@^4.2.3, ember-cli-htmlbars@^4.3.1:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-4.4.0.tgz#7ca17d5ca8f7550984346d9e6e93da0c3323f8d9"
   integrity sha512-ohgctqk7dXIZR4TgN0xRoUYltWhghFJgqmtuswQTpZ7p74RxI9PKx+E8WV/95mGcPzraesvMNBg5utQNvcqgNg==
@@ -5480,15 +5508,6 @@ ember-concurrency@^1.3.0:
     ember-cli-babel "^7.7.3"
     ember-compatibility-helpers "^1.2.0"
     ember-maybe-import-regenerator "^0.1.6"
-
-ember-cp-validations@^4.0.0-beta.10:
-  version "4.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/ember-cp-validations/-/ember-cp-validations-4.0.0-beta.10.tgz#756f3a136b30c1fe745dc724c2421e88153e595a"
-  integrity sha512-XaBdrtG6jGJBsCWyDpkdPAPziI1HBRAtdKhr1dNXIPDtBpMeGsgGM57n41O63i6KbA8efOpEgGUf/OvzZChoJg==
-  dependencies:
-    ember-cli-babel "^7.1.2"
-    ember-require-module "^0.3.0"
-    ember-validators "^2.0.0"
 
 ember-data@~3.20.0:
   version "3.20.3"
@@ -11996,6 +12015,11 @@ validate-npm-package-name@^3.0.0:
   integrity sha1-X6kS2B630MdK/BQN5zF/DKffQ34=
   dependencies:
     builtins "^1.0.3"
+
+validated-changeset@~0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/validated-changeset/-/validated-changeset-0.9.1.tgz#bb4773c7c5392dcc7ecfbc8ccc10c7fef2840d42"
+  integrity sha512-gEMvF+GN8ECLndHw5Ehc9ckXMgM+RRDK5+lCx2hGX9Qie1q68ixLEtbNXbPPhV4JHq6d7krVfTG+sEQ3X6zoHA==
 
 vary@~1.1.2:
   version "1.1.2"
