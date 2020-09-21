@@ -7,10 +7,12 @@ item:
   name: Name
   description: Description
   new: New Item
+  edit: Edit Item
   unit: Unit
   quantity: Quantity
 container:
   new: New Container
+  edit: Edit Container
 items: Items
 save: Save
 add: Add

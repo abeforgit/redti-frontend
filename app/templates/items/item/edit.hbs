@@ -1,27 +1,58 @@
-<div>
-    <div>
+<ModalDialog
+  @targetAttachment="center"
+  @onClose="{{this.goBack}}"
+  @translucentOverlay={{true}}
+>
+  {{#if this.container}}
+    <h1 class="ph5 tac f1 helvetica">{{t "container.edit"}}</h1>
+  {{else}}
+    <h1 class="ph5 tac f1 helvetica">{{t "item.edit"}}</h1>
+  {{/if}}
+  <div class="pa4 flex flex-column">
+    <UiForm @onSubmit={{perform this.editItem}}
+            @changeSet={{changeset @model this.editItemValidation}}
+    as |form|>
+      <form.Group @for="name" as |group|>
+        <group.Label>
+          {{t "item.name"}}
+        </group.Label>
+        <group.Input type="text" />
+        <group.Error/>
+      </form.Group>
 
-        <h1 class="dib"> >
-            {{@model.name}}
-        </h1>
-        <div class="dib fr">
-            <Button type="button" class="b--green">{{t "save"}}</Button>
-            <LinkTo @route="items.item" @model={{@model.id}}>
-            <Button type="button" class="b--red">{{t "cancel"}}</Button>
-            </LinkTo>
+      <form.Group @for="description" as |group|>
+        <group.Label>
+          {{t "item.description"}}
+        </group.Label>
+        <group.Input type="textarea" />
+        <group.Error/>
+      </form.Group>
 
-        </div>
-    </div>
-    <p>
-        {{@model.description}}
-    </p>
-    <div>
-        <span>
-            {{@model.quantity}}
-        </span>
-        <span>
-            {{@model.unit}}
-        </span>
-    </div>
+      {{#unless this.container}}
 
-</div>
+        <form.Group @for="unit" as |group|>
+          <group.Label>
+            {{t "item.unit"}}
+          </group.Label>
+          <group.Input type="text" />
+          <group.Error/>
+        </form.Group>
+
+        <form.Group @for="quantity" as |group|>
+          <group.Label>
+            {{t "item.quantity"}}
+          </group.Label>
+          <group.Input type="number" />
+          <group.Error/>
+        </form.Group>
+      {{/unless}}
+
+      <Button @onClick={{this.goBack}}>
+        {{t "cancel"}}
+      </Button>
+      <form.Submit>
+        {{t "save"}}
+      </form.Submit>
+    </UiForm>
+  </div>
+</ModalDialog>

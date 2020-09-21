@@ -4,7 +4,7 @@
         <h1 class="dib">
             {{@model.name}}
         </h1>
-        <LinkTo @route="items.item.edit" @model={{@model.id}} class="dib fr">
+        <LinkTo @route="items.item.edit" @query={{hash container=@model.container}} @model={{@model.id}} class="dib fr">
             <Button type="button">{{t "edit"}}</Button>
         </LinkTo>
     </div>

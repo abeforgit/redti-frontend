@@ -6,10 +6,12 @@ item:
   name: Naam
   description: Beschrijving
   new: Nieuw Item
+  edit: Item bewerken
   unit: Eenheid
   quantity: Hoeveelheid
 container:
   new: Nieuwe Container
+  edit: Container bewerken
   contents: Inhoud
 location:
   name: Naam
