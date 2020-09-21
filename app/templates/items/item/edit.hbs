@@ -3,7 +3,7 @@
   @onClose="{{this.goBack}}"
   @translucentOverlay={{true}}
 >
-  {{#if this.container}}
+  {{#if @model.container}}
     <h1 class="ph5 tac f1 helvetica">{{t "container.edit"}}</h1>
   {{else}}
     <h1 class="ph5 tac f1 helvetica">{{t "item.edit"}}</h1>
@@ -28,7 +28,7 @@
         <group.Error/>
       </form.Group>
 
-      {{#unless this.container}}
+      {{#unless @model.container}}
 
         <form.Group @for="unit" as |group|>
           <group.Label>
