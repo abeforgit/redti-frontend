@@ -9,6 +9,7 @@ item:
   edit: Item bewerken
   unit: Eenheid
   quantity: Hoeveelheid
+  infinite: Ongeteld
 container:
   new: Nieuwe Container
   edit: Container bewerken

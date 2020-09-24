@@ -1,10 +1,10 @@
-import Model, { attr, hasMany } from "@ember-data/model";
+import Model, { attr, belongsTo } from "@ember-data/model";
 
 export default class AddressModel extends Model {
-  @attr country;
-  @attr region;
-  @attr postalCode;
-  @attr street;
-  @attr city;
-  @hasMany("location") location;
+  @attr("string") country;
+  @attr("string") region;
+  @attr("string") postalCode;
+  @attr("string") street;
+  @attr("string") city;
+  @belongsTo("location") location;
 }

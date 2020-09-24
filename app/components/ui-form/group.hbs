@@ -1,6 +1,6 @@
 {{yield (hash
   Label=(component "ui-form/label" for=this.uniqueId)
-  Input=(component "ui-form/input" id=this.uniqueId for=@for model=@model)
+  Input=(component "ui-form/input" id=this.uniqueId for=@for model=@model type=@type)
   validationError=(changeset-get @model (concat "error." @for ".validation"))
   Error=(component "ui-form/error" error=(changeset-get @model (concat "error." @for ".validation")))
   )}}

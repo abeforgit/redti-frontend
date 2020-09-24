@@ -10,15 +10,18 @@ export default class ItemModel extends Model {
   @attr("string") name;
   /** @type {string} */
   @attr("string") description;
-  /** @type {string} */
-  @attr("string") unit;
   /** @type {number} */
-  @attr("number") quantity;
+  @attr("number") maxQuantity;
+  /** @type {boolean} */
+  @attr("boolean") infinite;
   /** @type {boolean} */
   @attr("boolean") container;
 
-  @hasMany("item", { inverse: "parent" }) children;
   @belongsTo("item", { inverse: "children" }) parent;
-  @belongsTo("location", { inverse: "items" }) currentLocation;
+  @belongsTo("location", { inverse: "items" }) warehouse;
+
+  @hasMany("item", { inverse: "parent" }) children;
   @hasMany("transfer") transfers;
+  @hasMany("dispatch") dispatches;
+  @hasMany("reservation") reservations;
 }

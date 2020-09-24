@@ -1,1 +1,5 @@
-<Input @value={{this.value}} ...attributes/>
+{{#if (eq @type "checkbox")}}
+<Input @checked={{this.value}} @type={{@type}} ...attributes/>
+{{else}}
+<Input @value={{this.value}} @type={{@type}} ...attributes/>
+{{/if}}

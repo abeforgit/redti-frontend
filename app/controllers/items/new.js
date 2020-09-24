@@ -9,8 +9,10 @@ import { ItemValidation } from "redti-front/models/item";
 
 export default class ItemsNewController extends Controller {
   queryParams = ["container"];
+
   @tracked
   container = false;
+
   newItemValidation = ItemValidation;
 
   @action
@@ -26,6 +28,8 @@ export default class ItemsNewController extends Controller {
     function* (changeSet) {
       if (this.container) {
         changeSet.set("container", true);
+      } else if (changeSet.infinite) {
+        changeSet.set("maxQuantity", null);
       }
       yield changeSet.save();
       this.goBack();
