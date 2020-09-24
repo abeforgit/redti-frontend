@@ -1,0 +1,13 @@
+<!-- TODO: this needs to be more generic (e.g. @searchField) -->
+<PowerSelect
+        @options={{@options}}
+        @onChange={{this.setValue}}
+        @selected={{this.value}}
+        @placeholder={{t "noneSelected" }}
+        @searchEnabled={{true}}
+        @searchPlaceholder={{t "search"}}
+        @searchField="name"
+        ...attributes
+        as |option| >
+  {{ option.name }}
+</PowerSelect>

@@ -10,7 +10,7 @@
 
   {{/if}}
   <div class="pa4 flex flex-column">
-    {{#with (changeset @model this.newItemValidation) as |changeset|}}
+    {{#with (changeset @model.item this.newItemValidation) as |changeset|}}
       <UiForm @onSubmit={{perform this.addItem}}
         @changeSet={{changeset}}
         as |form|>
@@ -45,12 +45,28 @@
 
             <form.Group @for="maxQuantity" as |group|>
               <group.Label>
-                {{t "item.quantity"}}
+                {{t "item.maxQuantity"}}
+              </group.Label>
+              <group.Input @type="number" />
+              <group.Error/>
+            </form.Group>
+
+            <form.Group @for="defaultQuantity" as |group|>
+              <group.Label>
+                {{t "item.defaultQuantity"}}
               </group.Label>
               <group.Input @type="number" />
               <group.Error/>
             </form.Group>
           {{/unless}}
+
+          <form.Group @for="category" as |group|>
+            <group.Label>
+              {{t "item.category"}}
+            </group.Label>
+            <group.Select @options={{@model.categories}} />
+            <group.Error/>
+          </form.Group>
         {{/unless}}
 
         <Button @onClick={{this.goBack}}>

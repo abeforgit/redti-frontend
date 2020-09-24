@@ -23,6 +23,9 @@
     {{/if}}
 
 </div>
+
+{{@model.category.name}}
+
 {{#each @model.transfers as |transfer|}}
     <div>
         {{transfer.to.name}}

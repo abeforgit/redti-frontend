@@ -3,14 +3,14 @@
   @onClose="{{this.goBack}}"
   @translucentOverlay={{true}}
 >
-  {{#if @model.container}}
+  {{#if @model.item.container}}
     <h1 class="ph5 tac f1 helvetica">{{t "container.edit"}}</h1>
   {{else}}
     <h1 class="ph5 tac f1 helvetica">{{t "item.edit"}}</h1>
   {{/if}}
   <div class="pa4 flex flex-column">
     <UiForm @onSubmit={{perform this.editItem}}
-            @changeSet={{changeset @model this.editItemValidation}}
+            @changeSet={{changeset @model.item this.editItemValidation}}
     as |form|>
       <form.Group @for="name" as |group|>
         <group.Label>
@@ -28,24 +28,32 @@
         <group.Error/>
       </form.Group>
 
-      {{#unless @model.container}}
+      {{#unless @model.item.container}}
 
-        <form.Group @for="unit" as |group|>
+        <form.Group @for="maxQuantity" as |group|>
           <group.Label>
-            {{t "item.unit"}}
+            {{t "item.maxQuantity"}}
           </group.Label>
-          <group.Input type="text" />
+          <group.Input type="number" />
           <group.Error/>
         </form.Group>
 
-        <form.Group @for="quantity" as |group|>
+        <form.Group @for="defaultQuantity" as |group|>
           <group.Label>
-            {{t "item.quantity"}}
+            {{t "item.defaultQuantity"}}
           </group.Label>
           <group.Input type="number" />
           <group.Error/>
         </form.Group>
       {{/unless}}
+
+      <form.Group @for="category" as |group|>
+        <group.Label>
+          {{t "item.category"}}
+        </group.Label>
+        <group.Select @options={{@model.categories}} />
+        <group.Error/>
+      </form.Group>
 
       <Button @onClick={{this.goBack}}>
         {{t "cancel"}}

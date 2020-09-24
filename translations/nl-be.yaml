@@ -8,8 +8,10 @@ item:
   new: Nieuw Item
   edit: Item bewerken
   unit: Eenheid
-  quantity: Hoeveelheid
+  maxQuantity: Aantal beschikbaar
+  defaultQuantity: Aantal standaard gereserveerd
   infinite: Ongeteld
+  category: Categorie
 container:
   new: Nieuwe Container
   edit: Container bewerken
@@ -33,3 +35,5 @@ save: Opslaan
 add: Voeg Toe
 edit: Bewerken
 cancel: Annuleren
+search: Zoeken
+noneSelected: Niets geselecteerd
