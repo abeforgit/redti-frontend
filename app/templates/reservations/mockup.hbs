@@ -1,0 +1,39 @@
+<div>
+  <h2>Initiatief</h2>
+  Naam initiatief: <input type="text"><br>
+  Plaats: <select>
+    {{#each this.model.locations as |location|}}
+      <option>{{location}}</option>
+    {{/each}}
+  </select><br>
+  Startdatum: <input type="date"><br>
+  <h2>Per locatie</h2>
+  <ul>
+  {{#each this.itemsToDisplay.perLocatie as |item|}}
+    <li><input type="number" value={{item.amount}} size="2" min="0"/>{{item.name}}</li>
+  {{/each}}
+  </ul>
+  <h2>Verfkoffer</h2>
+  <ul>
+    {{#each this.itemsToDisplay.verfkoffer as |item|}}
+      <li><input type="number" value={{item.amount}} size="2" min="0"/>{{item.name}}</li>
+    {{/each}}
+  </ul>
+  <h2>Basiskoffer</h2>
+  <ul>
+    {{#each this.itemsToDisplay.basiskoffer as |item|}}
+      <li><input type="number" value={{item.amount}} size="2" min="0"/>{{item.name}}</li>
+    {{/each}}
+  </ul>
+  <h2>Catalogus</h2>
+  <ul>
+    {{#each this.itemsToDisplay.catalogus as |item|}}
+      <li><input type="number" value={{item.amount}} size="2" min="0"/>{{item.name}} ({{item.code}})</li>
+    {{/each}}
+    <li><input type="text"><input type="button" value="+" onClick={{this.addCatalogusItem}}></li>
+  </ul>
+  <h2>Extra</h2>
+  <textarea>Hier nog extra opmerkingen</textarea><br>
+  <button>Opslaan</button>
+  <button>Annuleren</button>
+</div>
