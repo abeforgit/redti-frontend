@@ -20,4 +20,8 @@ Router.map(function () {
       this.route('edit');
     });
   });
+
+  this.route('reservation', function() {
+    this.route('new');
+  });
 });
