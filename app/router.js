@@ -24,4 +24,5 @@ Router.map(function () {
   this.route('reservation', function() {
     this.route('new');
   });
+  this.route('initiatives');
 });

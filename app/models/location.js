@@ -10,6 +10,6 @@ export default class LocationModel extends Model {
 
   @hasMany("transfer", { inverse: "from" }) outbox;
   @hasMany("transfer", { inverse: "to" }) inbox;
-  @hasMany("item", { inverse: "currentLocation" }) items;
+  @hasMany("item", { inverse: "warehouse" }) items;
   @hasMany("initiative") initiatives;
 }

@@ -15,7 +15,7 @@ export default class LocationsRoute extends Route {
 
     locations.forEach((location) => {
       let items = this.store.query("item", {
-        "filter[current-location][:id:]": location.id,
+        // location: location,
         "filter[parent][:id:]": "root",
       });
       this.itemQueries.push(items);

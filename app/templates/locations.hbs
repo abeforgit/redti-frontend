@@ -5,6 +5,7 @@
                 {{t "location.new"}}
             </Button>
         </LinkTo>
+        <Button {{on "click" this.seed}}> Z A A D </Button>
     </div>
     {{#each @model as |location|}}
         <Sidebar::Location @location={{location}} @didLocationChange={{this.refresh}}/>
