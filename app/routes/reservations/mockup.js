@@ -3,69 +3,61 @@ import Route from '@ember/routing/route';
 export default class ReservationsMockupRoute extends Route {
   async model() {
     return {
-      locations: [
-        "De Sleutelbloem, Brecht",
-        "De Octopus, Sint-Katelijne Waver",
-        "De Zuivelfabriek Van Hollebeke, Ieper",
-        "De Hagaard, Overijse"
+      initiatives: [
+        "Speelweek Dappere Doe-Het-Zelvers",
+        "Kleuterspeelweek Poppenkast",
+        "18+ Kamp",
+        "Instructeurscursus"
       ],
       items: {
         perLocatie: [
           {
             name: "Verkleedkoffer",
-            amount: 1
+            amount: 0
           },
           {
             name: "Bekerbak (35 bekers)",
-            amount: 1
+            amount: 0
           },
           {
             name: "Afwasbakjes",
-            amount: 5
-          }
-        ],
-        verfkoffer: [
-          {
-            name: "Bus gele verf",
-            amount: 1
-          },
-          {
-            name: "Bus blauwe verf",
-            amount: 1
-          },
-          {
-            name: "Bus rode verf",
-            amount: 1
-          },
-          {
-            name: "Penseel",
-            amount: 25
+            amount: 0
           }
         ],
         basiskoffer: [
           {
             name: "Doos alcoholstiften (8)",
-            amount: 1
+            amount: 0
           },
           {
             name: "Pak wit A4-papier (50)",
-            amount: 1
+            amount: 0
           },
           {
             name: "Doos scharen (2 grote + 25 kleine)",
-            amount: 1
+            amount: 0
+          }
+        ],
+        gadgets: [
+          {
+            name: "Gadget Kleuters",
+            amount: 0
+          },
+          {
+            name: "Gadget Lager",
+            amount: 0
           }
         ],
         catalogus: [
           {
             code: "KS27",
             name: "Bingo",
-            amount: 1
+            amount: 0
           },
           {
             code: "GS6",
             name: "Eenwieler",
-            amount: 2
+            amount: 0
           }
         ]
       }

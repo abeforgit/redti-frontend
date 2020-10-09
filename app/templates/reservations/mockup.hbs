@@ -1,27 +1,28 @@
 <div>
   <h2>Initiatief</h2>
-  Naam initiatief: <input type="text"><br>
-  Plaats: <select>
-    {{#each this.model.locations as |location|}}
-      <option>{{location}}</option>
+  <select>
+    {{#each this.model.initiatives as |initiative|}}
+      <option>{{initiative}}</option>
     {{/each}}
   </select><br>
-  Startdatum: <input type="date"><br>
+  <h2>Templates</h2>
+  <button type="button" {{on "click" this.kleutersTemplate}}>Kleuters</button>
+  <button type="button" {{on "click" this.lagerTemplate}}>Lager</button>
   <h2>Per locatie</h2>
   <ul>
   {{#each this.itemsToDisplay.perLocatie as |item|}}
     <li><input type="number" value={{item.amount}} size="2" min="0"/>{{item.name}}</li>
   {{/each}}
   </ul>
-  <h2>Verfkoffer</h2>
-  <ul>
-    {{#each this.itemsToDisplay.verfkoffer as |item|}}
-      <li><input type="number" value={{item.amount}} size="2" min="0"/>{{item.name}}</li>
-    {{/each}}
-  </ul>
   <h2>Basiskoffer</h2>
   <ul>
     {{#each this.itemsToDisplay.basiskoffer as |item|}}
+      <li><input type="number" value={{item.amount}} size="2" min="0"/>{{item.name}}</li>
+    {{/each}}
+  </ul>
+  <h2>Gadgets</h2>
+  <ul>
+    {{#each this.itemsToDisplay.gadgets as |item|}}
       <li><input type="number" value={{item.amount}} size="2" min="0"/>{{item.name}}</li>
     {{/each}}
   </ul>
