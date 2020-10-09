@@ -1,0 +1,18 @@
+<div>
+  <div>
+    <h1 class="dib">
+      {{@model.name}}
+    </h1>
+    <LinkTo @route="initiatives.initiative.edit" @model={{@model.id}} class="dib fr">
+      <Button type="button">
+        {{t "edit"}}
+      </Button>
+    </LinkTo>
+  </div>
+  {{date-formatter @model.startDate}} - {{date-formatter @model.endDate}}
+  <p>
+    {{@model.description}}
+  </p>
+  <h2>Reservaties</h2>
+  <b>TODO</b>
+</div>

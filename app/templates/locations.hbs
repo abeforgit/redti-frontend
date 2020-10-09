@@ -1,16 +1,4 @@
-<Sidebar>
-    <div>
-        <LinkTo @route="locations.new">
-            <Button type="button">
-                {{t "location.new"}}
-            </Button>
-        </LinkTo>
-        <Button {{on "click" this.seed}}> Z A A D </Button>
-    </div>
-    {{#each @model.locations as |location|}}
-        <Sidebar::Location @location={{location}} @didLocationChange={{this.refresh}}/>
-    {{/each}}
-</Sidebar>
+<LocationSidebar @model={{@model}}/>
 <div class="w-75 fr">
 {{outlet}}
 </div>

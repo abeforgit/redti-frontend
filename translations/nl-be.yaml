@@ -32,6 +32,8 @@ address:
   postalCode: Postcode
   region: Provincie
   country: Land
+initiative:
+  new: Nieuw initiatief
 items: Items
 locations: Locaties
 save: Opslaan

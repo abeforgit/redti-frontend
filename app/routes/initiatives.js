@@ -1,4 +1,16 @@
-import Route from '@ember/routing/route';
+import Route from "@ember/routing/route";
 
-export default class InitiativesRoute extends Route {
+export default class LocationsRoute extends Route {
+  /** @type {Promise[]} */
+  itemQueries;
+
+  async model() {
+    let locations = await this.store.query("location", {
+      include: "initiatives,address",
+    });
+
+    return {
+      locations
+    };
+  }
 }

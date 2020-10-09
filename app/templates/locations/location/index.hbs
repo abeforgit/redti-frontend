@@ -3,6 +3,11 @@
         <h1 class="dib">
             {{@model.name}}
         </h1>
+        <LinkTo @route="initiatives.new" class="dib fr">
+          <Button type="button">
+            {{t "initiative.new"}}
+          </Button>
+        </LinkTo>
         <LinkTo @route="locations.location.edit" @model={{@model.id}} class="dib fr">
             <Button type="button">
                 {{t "edit"}}

@@ -25,6 +25,9 @@ Router.map(function () {
     this.route('new');
   });
   this.route('initiatives', function() {
-    this.route('initiative', { path: ":initiative_id" });
+    this.route('new');
+    this.route('initiative', { path: ":initiative_id" }, function() {
+      this.route('edit');
+    });
   });
 });
