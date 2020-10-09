@@ -6,5 +6,5 @@ export default class AddressModel extends Model {
   @attr("string") postalCode;
   @attr("string") street;
   @attr("string") city;
-  @belongsTo("location") location;
+  @belongsTo("location", { inverse: "address" }) location;
 }

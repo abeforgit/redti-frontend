@@ -23,6 +23,8 @@ location:
   description: Beschrijving
   goToTransfers: Bekijk transfers
   new: Nieuwe Locatie
+  latitude: Latitude
+  longitude: Longitude
 address:
   street: Straat & Huisnr.
   city: Stad

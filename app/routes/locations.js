@@ -6,7 +6,7 @@ export default class LocationsRoute extends Route {
 
   async model() {
     let locations = await this.store.query("location", {
-      include: "initiatives",
+      include: "initiatives,address",
     });
 
     return {

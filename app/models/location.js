@@ -6,7 +6,7 @@ export default class LocationModel extends Model {
   @attr("number") latitude;
   @attr("number") longitude;
 
-  @belongsTo("address") address;
+  @belongsTo("address", { inverse: "location" }) address;
 
   @hasMany("transfer", { inverse: "from" }) outbox;
   @hasMany("transfer", { inverse: "to" }) inbox;
