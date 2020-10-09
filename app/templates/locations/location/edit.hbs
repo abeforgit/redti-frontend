@@ -1,3 +1,94 @@
-<h1>
-    {{t "location.edit"}}
-</h1>
+<ModalDialog
+        @targetAttachment="center"
+        @onClose={{this.goBack}}
+        @translucentOverlay={{true}}
+>
+  <h1 class="ph5 tac f1 helvetica">{{t "location.edit"}}</h1>
+  <div class="pa4 flex flex-column">
+    {{#with (changeset @model this.locationAddressValidation) as |changeset|}}
+      <UiForm @onSubmit={{perform this.saveLocation}}
+              @changeSet={{changeset}}
+              as |form|>
+        <form.Group @for="location.name" as |group|>
+          <group.Label>
+            {{t "location.name"}}
+          </group.Label>
+          <group.Input type="text" />
+          <group.Error/>
+        </form.Group>
+
+        <form.Group @for="location.description" as |group|>
+          <group.Label>
+            {{t "location.description"}}
+          </group.Label>
+          <group.Input @type="textarea" />
+          <group.Error/>
+        </form.Group>
+
+        <form.Group @for="location.latitude" as |group|>
+          <group.Label>
+            {{t "location.latitude"}}
+          </group.Label>
+          <group.Input @type="number" />
+          <group.Error/>
+        </form.Group>
+
+        <form.Group @for="location.longitude" as |group|>
+          <group.Label>
+            {{t "location.longitude"}}
+          </group.Label>
+          <group.Input @type="number" />
+          <group.Error/>
+        </form.Group>
+
+        <form.Group @for="address.street" as |group|>
+          <group.Label>
+            {{t "address.street"}}
+          </group.Label>
+          <group.Input @type="textarea" />
+          <group.Error/>
+        </form.Group>
+
+        <form.Group @for="address.postalCode" as |group|>
+          <group.Label>
+            {{t "address.postalCode"}}
+          </group.Label>
+          <group.Input @type="textarea" />
+          <group.Error/>
+        </form.Group>
+
+        <form.Group @for="address.city" as |group|>
+          <group.Label>
+            {{t "address.city"}}
+          </group.Label>
+          <group.Input @type="textarea" />
+          <group.Error/>
+        </form.Group>
+
+        <form.Group @for="address.region" as |group|>
+          <group.Label>
+            {{t "address.region"}}
+          </group.Label>
+          <group.Input @type="textarea" />
+          <group.Error/>
+        </form.Group>
+
+        <form.Group @for="address.country" as |group|>
+          <group.Label>
+            {{t "address.country"}}
+          </group.Label>
+          <group.Input @type="textarea" />
+          <group.Error/>
+        </form.Group>
+
+        <Button @onClick={{this.goBack}}>
+          {{t "cancel"}}
+        </Button>
+        <form.Submit>
+          {{t "save"}}
+        </form.Submit>
+      </UiForm>
+    {{/with}}
+  </div>
+
+</ModalDialog>

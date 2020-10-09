@@ -25,6 +25,7 @@ location:
   new: Nieuwe Locatie
   latitude: Latitude
   longitude: Longitude
+  edit: Locatie bewerken
 address:
   street: Straat & Huisnr.
   city: Stad
