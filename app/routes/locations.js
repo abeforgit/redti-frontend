@@ -1,6 +1,4 @@
-import { action } from "@ember/object";
 import Route from "@ember/routing/route";
-import RSVP from "rsvp";
 
 export default class LocationsRoute extends Route {
   /** @type {Promise[]} */
@@ -8,23 +6,11 @@ export default class LocationsRoute extends Route {
 
   async model() {
     let locations = await this.store.query("location", {
-      include: "items.parent",
+      include: "initiatives",
     });
-    let result = [];
-    this.itemQueries = [];
 
-    locations.forEach((location) => {
-      let items = this.store.query("item", {
-        // location: location,
-        "filter[parent][:id:]": "root",
-      });
-      this.itemQueries.push(items);
-      result.push({ location, items });
-    });
-    return result;
-  }
-  @action
-  updateItems() {
-    RSVP.all(this.itemQueries).then((qs) => qs.forEach((q) => q.update()));
+    return {
+      locations
+    };
   }
 }

@@ -20,9 +20,6 @@ export default class SidebarLocationComponent extends Component {
       this.args.location.id
     );
   }
-  get items() {
-    return this.args.location.items;
-  }
   @action
   expand() {
     this.router.transitionTo("locations.location", this.args.location.id);
@@ -32,34 +29,8 @@ export default class SidebarLocationComponent extends Component {
   toggle() {
     this.router.transitionTo(
       "locations.location",
-      this.args.location.location.id
+      this.args.location.id
     );
     this.open = !this.open;
-  }
-  @action
-  async transferItem(itemId) {
-    this.underDrag = 0;
-    await this.itemManager.transferItem(itemId, this.args.location.location.id);
-    if (this.timer !== null) {
-      cancel(this.timer);
-    }
-    this.args.didLocationChange();
-  }
-  @action
-  dropEnter() {
-    this.underDrag++;
-    if (this.timer === null && !this.open) {
-      this.timer = later(() => {
-        this.expand();
-        this.timer = null;
-      }, 500);
-    }
-  }
-  @action
-  dropLeave() {
-    this.underDrag--;
-    if (this.underDrag <= 0 && this.timer !== null) {
-      cancel(this.timer);
-    }
   }
 }
