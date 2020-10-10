@@ -8,7 +8,7 @@ export default class UiFormSelectComponent extends Component {
 
   constructor(target, args) {
     super(target, args);
-    this.value = args.model[args.for];
+    this.value = this.args.selected || args.model[args.for];
   }
 
   @action

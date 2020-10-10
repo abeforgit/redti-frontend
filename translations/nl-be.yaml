@@ -34,6 +34,11 @@ address:
   country: Land
 initiative:
   new: Nieuw initiatief
+  name: Naam
+  location: Locatie
+  description: Beschrijving
+  startDate: Begindatum
+  endDate: Einddatum
 items: Items
 locations: Locaties
 save: Opslaan

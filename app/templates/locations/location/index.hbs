@@ -3,7 +3,7 @@
         <h1 class="dib">
             {{@model.name}}
         </h1>
-        <LinkTo @route="initiatives.new" class="dib fr">
+        <LinkTo @route="initiatives.new" @query={{hash location=@model.id}} class="dib fr">
           <Button type="button">
             {{t "initiative.new"}}
           </Button>

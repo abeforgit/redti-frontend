@@ -1,8 +1,10 @@
 import {action} from "@ember/object";
 import Component from "@glimmer/component";
+import { inject as service } from "@ember/service";
 
 /** @extends {Component<Args>} */
 export default class LocationSidebarComponent extends Component {
+  @service store;
   @action
   async seed() {
     const initiatives = await this.store.findAll('initiative');
