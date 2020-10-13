@@ -39,6 +39,9 @@ initiative:
   description: Beschrijving
   startDate: Begindatum
   endDate: Einddatum
+  edit: Initiatief bewerken
+  startDateUnknown: Startdatum onbekend
+  endDateUnknown: Einddatum onbekend
 items: Items
 locations: Locaties
 save: Opslaan

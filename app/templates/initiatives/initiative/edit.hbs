@@ -1,1 +1,63 @@
-{{outlet}}
+<ModalDialog
+        @targetAttachment="center"
+        @onClose={{this.goBack}}
+        @translucentOverlay={{true}}
+>
+  <h1 class="ph5 tac f1 helvetica">{{t "initiative.edit"}}</h1>
+  <div class="pa4 flex flex-column">
+    {{#with (changeset @model.initiative this.newLocationAddressValidation) as |changeset|}}
+      <UiForm @onSubmit={{perform this.saveInitiative}}
+              @changeSet={{changeset}}
+              as |form|>
+        <form.Group @for="name" as |group|>
+          <group.Label>
+            {{t "initiative.name"}}
+          </group.Label>
+          <group.Input @type="text" />
+          <group.Error/>
+        </form.Group>
+
+        <form.Group @for="location" as |group|>
+          <group.Label>
+            {{t "initiative.location"}}
+          </group.Label>
+          <group.Select @options={{@model.locations}}/>
+          <group.Error/>
+        </form.Group>
+
+        <form.Group @for="description" as |group|>
+          <group.Label>
+            {{t "initiative.description"}}
+          </group.Label>
+          <group.Input @type="text" />
+          <group.Error/>
+        </form.Group>
+
+        <form.Group @for="startDate" as |group|>
+          <group.Label>
+            {{t "initiative.startDate"}}
+          </group.Label>
+          <group.Input @type="date" />
+          <group.Error/>
+        </form.Group>
+
+        <form.Group @for="endDate" as |group|>
+          <group.Label>
+            {{t "initiative.endDate"}}
+          </group.Label>
+          <group.Input @type="date" />
+          <group.Error/>
+        </form.Group>
+
+        <Button @onClick={{this.goBack}}>
+          {{t "cancel"}}
+        </Button>
+        <form.Submit>
+          {{t "save"}}
+        </form.Submit>
+
+      </UiForm>
+    {{/with}}
+  </div>
+
+</ModalDialog>

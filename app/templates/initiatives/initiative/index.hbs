@@ -9,7 +9,7 @@
       </Button>
     </LinkTo>
   </div>
-  {{date-formatter @model.startDate}} - {{date-formatter @model.endDate}}
+  {{if @model.startDate (format-date @model.startDate) (t "initiative.startDateUnknown")}} - {{if @model.endDate (format-date @model.endDate) (t "initiative.endDateUnknown")}}
   <p>
     {{@model.description}}
   </p>
