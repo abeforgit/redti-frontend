@@ -4,4 +4,4 @@
   Select=(component "ui-form/select" for=@for model=@model updateChangeset=this.args.updateChangeset)
   validationError=(changeset-get @model (concat "error." @for ".validation"))
   Error=(component "ui-form/error" error=(changeset-get @model (concat "error." @for ".validation")))
-  )}}
+)}}

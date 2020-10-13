@@ -46,24 +46,24 @@ export default class LocationSidebarComponent extends Component {
     const koddigeKlussers = await this.store.createRecord('initiative', {
       name: "Koddige Klussers",
       description: "Een Yenga blok, daarop een lego blok, een grote kartonnen doos,…  We bouwen een toren zo hoog dat je heel het land kan zien, een kamp zo groot dat er een familie beren in kan leven, een huis dat zelfs de boze wolf niet omver krijgt. Bouw jij met ons mee?",
-      startDate: new Date(2020, 7, 20),
-      endDate: new Date(2020, 7, 24),
+      startDate: new Date('2020/7/20'),
+      endDate: new Date('2020/7/24'),
       location: zevensprong,
     }).save();
 
     const bonteBoerderij = await this.store.createRecord('initiative', {
       name: "Bonte Boerderij",
       description: "Leven zoals op een echte boerderij, dat is super leuk! We gaan de geitjes melken, zaadjes planten, groenten oogsten en nog zoveel meer. Wie wilt er mee alle kneepjes van het vak leren?",
-      startDate: new Date(2020, 7, 27),
-      endDate: new Date(2020, 7, 31),
+      startDate: new Date('2020/7/27'),
+      endDate: new Date('2020/7/31'),
       location: zevensprong,
     }).save();
 
     const professorBolleboos = await this.store.createRecord('initiative', {
       name: "Professor Bolleboos",
       description: "Wetenschap, het is toch een raar diertje. Het ene moment heb je twee flesjes met in het ene iets groen en in het andere iets blauw, het andere moment BOEM! Een hele explosie. Duik jij mee met ons in de wondere wereld van wetenschap en experimenten?",
-      startDate: new Date(2020, 8, 10),
-      endDate: new Date(2020, 8, 16),
+      startDate: new Date('2020/8/10'),
+      endDate: new Date('2020/8/16'),
       location: rozendaal,
     }).save();
   }

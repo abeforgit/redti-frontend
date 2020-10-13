@@ -24,8 +24,6 @@ export default class InitiativeInitiativeEditController extends Controller {
      * @this {InitiativesNewController}
      */
     function* (changeSet) {
-      changeSet["startDate"] = new Date(changeSet["startDate"]);
-      changeSet["endDate"] = new Date(changeSet["endDate"]);
       yield changeSet.save();
       this.goBack();
     }

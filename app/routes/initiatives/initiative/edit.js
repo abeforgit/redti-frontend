@@ -2,10 +2,8 @@ import Route from '@ember/routing/route';
 
 export default class InitiativesInitiativeEditRoute extends Route {
   async model() {
-    const initiative = await this.modelFor("initiatives.initiative");
-    const locations = await this.store.findAll('location');
-    initiative.startDate = initiative.startDate?.toISOString();
-    initiative.endDate = initiative.endDate?.toISOString();
+    const initiative = this.modelFor("initiatives.initiative");
+    const locations = this.store.findAll('location');
     return { initiative, locations }
   }
 }
