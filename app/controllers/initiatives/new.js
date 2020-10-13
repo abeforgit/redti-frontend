@@ -25,8 +25,6 @@ export default class InitiativesNewController extends Controller {
      * @this {InitiativesNewController}
      */
     function* (changeSet) {
-      changeSet["startDate"] = new Date(changeSet["startDate"]);
-      changeSet["endDate"] = new Date(changeSet["endDate"]);
       if (!changeSet["location"]) {
         changeSet["location"] = yield this.store.findRecord('location', this.location);
       }
