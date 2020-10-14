@@ -66,5 +66,29 @@ export default class LocationSidebarComponent extends Component {
       endDate: new Date('2020/8/16'),
       location: rozendaal,
     }).save();
+
+
+    const items = await this.store.findAll('item');
+
+    await Promise.all([
+      this.addItems(items, koddigeKlussers),
+      this.addItems(items, bonteBoerderij),
+      this.addItems(items, professorBolleboos)
+    ]);
+  }
+
+  addItems(items, initiative) {
+    return Promise.all(items.map((item) => {
+      const rng = Math.floor(Math.random() * 5);
+      if (rng >= 2 && !item.container) {
+        return this.store.createRecord('reservation', {
+          item,
+          initiative: initiative,
+          quantity: rng - 1
+        }).save();
+      } else {
+        return Promise.resolve();
+      }
+    }));
   }
 }

@@ -23,6 +23,12 @@
   <p>
     {{@model.description}}
   </p>
-  <h2>Reservaties</h2>
-  <b>TODO</b>
+  <div>
+    <h2 class="dib">Reservaties</h2>
+  </div>
+  <ul>
+    {{#each @model.reservations as |reservation|}}
+      <li>{{reservation.quantity}}x {{reservation.item.name}}</li>
+    {{/each}}
+  </ul>
 </div>
