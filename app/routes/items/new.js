@@ -12,7 +12,6 @@ export default class ItemsNewRoute extends Route {
       parent: root,
       container: false,
       maxQuantity: 1,
-      defaultQuantity: 1,
     });
     let categories = this.store.findAll('category');
     return {

@@ -9,7 +9,6 @@ item:
   edit: Item bewerken
   unit: Eenheid
   maxQuantity: Aantal beschikbaar
-  defaultQuantity: Aantal standaard gereserveerd
   infinite: Ongeteld
   category: Categorie
 container:

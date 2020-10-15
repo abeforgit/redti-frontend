@@ -36,7 +36,6 @@ export default class LocationSidebarComponent extends Component {
           name: "Item " + i + j,
           description: "This item was made for category " + i,
           parent: root,
-          defaultQuantity: j,
           category: category
         }).save();
       }

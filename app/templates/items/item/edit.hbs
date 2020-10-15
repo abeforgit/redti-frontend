@@ -37,14 +37,6 @@
           <group.Input type="number" />
           <group.Error/>
         </form.Group>
-
-        <form.Group @for="defaultQuantity" as |group|>
-          <group.Label>
-            {{t "item.defaultQuantity"}}
-          </group.Label>
-          <group.Input type="number" />
-          <group.Error/>
-        </form.Group>
       {{/unless}}
 
       <form.Group @for="category" as |group|>
