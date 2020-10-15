@@ -25,10 +25,17 @@
   </p>
   <div>
     <h2 class="dib">Reservaties</h2>
+    <LinkTo @route="initiatives.initiative.reservation.edit" class="dib fr">
+      <Button type="button">
+        {{t "edit"}}
+      </Button>
+    </LinkTo>
   </div>
   <ul>
     {{#each @model.reservations as |reservation|}}
       <li>{{reservation.quantity}}x {{reservation.item.name}}</li>
+    {{else}}
+      <i>{{t "reservation.none"}}</i>
     {{/each}}
   </ul>
 </div>

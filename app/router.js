@@ -20,14 +20,13 @@ Router.map(function () {
       this.route('edit');
     });
   });
-
-  this.route('reservation', function() {
-    this.route('new');
-  });
   this.route('initiatives', function() {
     this.route('new');
     this.route('initiative', { path: ":initiative_id" }, function() {
       this.route('edit');
+      this.route('reservation', function() {
+        this.route('edit');
+      });
     });
   });
 });

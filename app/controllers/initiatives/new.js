@@ -16,7 +16,10 @@ export default class InitiativesNewController extends Controller {
   }
 
   get getLocation() {
-    return this.store.findRecord('location', this.location);
+    if (this.location) {
+      return this.store.findRecord('location', this.location);
+    }
+    return undefined;
   }
 
   @task(
@@ -25,7 +28,7 @@ export default class InitiativesNewController extends Controller {
      * @this {InitiativesNewController}
      */
     function* (changeSet) {
-      if (!changeSet["location"]) {
+      if (!changeSet["location"] && this.location) {
         changeSet["location"] = yield this.store.findRecord('location', this.location);
       }
       yield changeSet.save();

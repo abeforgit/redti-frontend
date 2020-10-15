@@ -42,6 +42,10 @@ initiative:
   edit: Initiatief bewerken
   startDateUnknown: Startdatum onbekend
   endDateUnknown: Einddatum onbekend
+reservation:
+  edit: Reservatie voor {name} bewerken
+  initiative: Initiatief
+  none: Geen reservaties
 items: Items
 locations: Locaties
 save: Opslaan

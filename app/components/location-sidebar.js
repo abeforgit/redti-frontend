@@ -8,10 +8,39 @@ export default class LocationSidebarComponent extends Component {
   @action
   async seed() {
     const initiatives = await this.store.findAll('initiative');
-    initiatives.forEach(x => x.destroyRecord());
+    await Promise.all(initiatives.map(x => x.destroyRecord()));
 
     const locations = await this.store.findAll('location');
-    locations.forEach(x => x.destroyRecord());
+    await Promise.all(locations.map(x => x.destroyRecord()));
+
+    const reservations = await this.store.findAll('reservation');
+    await Promise.all(reservations.map(x => x.destroyRecord()));
+
+    const categories = await this.store.findAll('category');
+    await Promise.all(categories.map(x => x.destroyRecord()));
+
+    let items = await this.store.findAll('item');
+    await Promise.all(items.map(x => {
+      if (x.id !== 'root') {
+        return x.destroyRecord()
+      }
+    }));
+
+    let root = await this.store.findRecord("item", "root");
+    for (let i = 0; i < 5; i++) {
+      let category = await this.store.createRecord('category', {
+        name: "Category " + i
+      }).save();
+      for (let j = 0; j < 3; j++) {
+        this.store.createRecord('item', {
+          name: "Item " + i + j,
+          description: "This item was made for category " + i,
+          parent: root,
+          defaultQuantity: j,
+          category: category
+        }).save();
+      }
+    }
 
     const zevensprongAddress = await this.store.createRecord('address', {
       country: "België",
@@ -68,7 +97,7 @@ export default class LocationSidebarComponent extends Component {
     }).save();
 
 
-    const items = await this.store.findAll('item');
+    items = await this.store.findAll('item');
 
     await Promise.all([
       this.addItems(items, koddigeKlussers),
@@ -79,15 +108,14 @@ export default class LocationSidebarComponent extends Component {
 
   addItems(items, initiative) {
     return Promise.all(items.map((item) => {
+      console.log(item.name);
       const rng = Math.floor(Math.random() * 5);
-      if (rng >= 2 && !item.container) {
+      if (rng > 2 && !item.container) {
         return this.store.createRecord('reservation', {
           item,
           initiative: initiative,
           quantity: rng - 1
         }).save();
-      } else {
-        return Promise.resolve();
       }
     }));
   }

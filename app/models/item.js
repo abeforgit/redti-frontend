@@ -16,8 +16,6 @@ export default class ItemModel extends Model {
   @attr("boolean") infinite;
   /** @type {boolean} */
   @attr("boolean") container;
-  /** @type {number} */
-  @attr("number") defaultQuantity;
 
   @belongsTo("item", { inverse: "children" }) parent;
   @belongsTo("location", { inverse: "items" }) warehouse;
