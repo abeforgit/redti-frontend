@@ -2,7 +2,8 @@
     {{yield (hash
       Label=(component "ui-form/label")
       Input=(component "ui-form/input" model=this.changeSet)
-      Group=(component "ui-form/group" model=this.changeSet )
+      Group=(component "ui-form/group" model=this.changeSet updateChangeset=this.updateChangeset)
+      Select=(component "ui-form/select" model=this.changeSet updateChangeset=this.updateChangeset)
       Error=(component "ui-form/error")
       Submit=(component "button" type="submit" task=this.submitTask)
       isSubmitting=this.submitTask.isRunning

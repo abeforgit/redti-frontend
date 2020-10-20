@@ -1,8 +1,6 @@
 import { action } from "@ember/object";
 import Component from "@glimmer/component";
 import { task } from "ember-concurrency";
-import { Changeset } from "ember-changeset";
-import lookupValidator from "ember-changeset-validations";
 
 /**
  * @typedef {import("ember-changeset/types").BufferedChangeset} BufferedChangeset
@@ -36,5 +34,11 @@ export default class UiFormComponent extends Component {
   submit(event) {
     event.preventDefault();
     this.submitTask.perform();
+  }
+
+  @action
+  updateChangeset(key, newVal) {
+    //this.changeSet[key] = newVal;
+    this.changeSet.set(key, newVal);
   }
 }

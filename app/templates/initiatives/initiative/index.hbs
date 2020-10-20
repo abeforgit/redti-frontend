@@ -1,0 +1,41 @@
+<div>
+  <div>
+    <h1 class="dib">
+      {{@model.name}}
+    </h1>
+    <LinkTo @route="initiatives.initiative.edit" @model={{@model.id}} class="dib fr">
+      <Button type="button">
+        {{t "edit"}}
+      </Button>
+    </LinkTo>
+  </div>
+  {{#if @model.startDate}}
+    {{format-date @model.startDate day="numeric" month="long" year="numeric"}}
+  {{ else }}
+    {{t "initiative.startDateUnknown"}}
+  {{/if}}
+  -
+  {{#if @model.endDate}}
+    {{format-date @model.endDate day="numeric" month="long" year="numeric"}}
+  {{ else }}
+    {{t "initiative.endDateUnknown"}}
+  {{/if}}
+  <p>
+    {{@model.description}}
+  </p>
+  <div>
+    <h2 class="dib">Reservaties</h2>
+    <LinkTo @route="initiatives.initiative.reservation.edit" class="dib fr">
+      <Button type="button">
+        {{t "edit"}}
+      </Button>
+    </LinkTo>
+  </div>
+  <ul>
+    {{#each @model.reservations as |reservation|}}
+      <li>{{reservation.quantity}}x {{reservation.item.name}}</li>
+    {{else}}
+      <i>{{t "reservation.none"}}</i>
+    {{/each}}
+  </ul>
+</div>

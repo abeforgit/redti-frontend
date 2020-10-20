@@ -19,6 +19,7 @@ export default class ItemModel extends Model {
 
   @belongsTo("item", { inverse: "children" }) parent;
   @belongsTo("location", { inverse: "items" }) warehouse;
+  @belongsTo("category", { inverse: "items" }) category;
 
   @hasMany("item", { inverse: "parent" }) children;
   @hasMany("transfer") transfers;

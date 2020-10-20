@@ -8,10 +8,15 @@ export default class ItemsNewRoute extends Route {
   };
   async model() {
     let root = await this.store.findRecord("item", "root");
-    return this.store.createRecord("item", {
+    let newItem = this.store.createRecord("item", {
       parent: root,
       container: false,
-      quantity: 1,
+      maxQuantity: 1,
     });
+    let categories = this.store.findAll('category');
+    return {
+      item: newItem,
+      categories: categories,
+    }
   }
 }

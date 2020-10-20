@@ -8,8 +8,9 @@ item:
   new: Nieuw Item
   edit: Item bewerken
   unit: Eenheid
-  quantity: Hoeveelheid
+  maxQuantity: Aantal beschikbaar
   infinite: Ongeteld
+  category: Categorie
 container:
   new: Nieuwe Container
   edit: Container bewerken
@@ -21,15 +22,34 @@ location:
   description: Beschrijving
   goToTransfers: Bekijk transfers
   new: Nieuwe Locatie
+  latitude: Latitude
+  longitude: Longitude
+  edit: Locatie bewerken
 address:
   street: Straat & Huisnr.
   city: Stad
   postalCode: Postcode
   region: Provincie
   country: Land
+initiative:
+  new: Nieuw initiatief
+  name: Naam
+  location: Locatie
+  description: Beschrijving
+  startDate: Begindatum
+  endDate: Einddatum
+  edit: Initiatief bewerken
+  startDateUnknown: Startdatum onbekend
+  endDateUnknown: Einddatum onbekend
+reservation:
+  edit: Reservatie voor {name} bewerken
+  initiative: Initiatief
+  none: Geen reservaties
 items: Items
 locations: Locaties
 save: Opslaan
 add: Voeg Toe
 edit: Bewerken
 cancel: Annuleren
+search: Zoeken
+noneSelected: Niets geselecteerd

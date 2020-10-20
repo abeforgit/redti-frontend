@@ -1,5 +1,7 @@
 {{#if (eq @type "checkbox")}}
 <Input @checked={{this.value}} @type={{@type}} ...attributes/>
+{{else if (eq @type "date")}}
+<PikadayInput @value={{this.value}} @onSelection={{set this.value}} ...attributes />
 {{else}}
 <Input @value={{this.value}} @type={{@type}} ...attributes/>
 {{/if}}

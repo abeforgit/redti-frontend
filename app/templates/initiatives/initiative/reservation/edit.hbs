@@ -1,0 +1,23 @@
+<h1 class="ph5 tac f1 helvetica">{{t "reservation.edit" name=@model.initiative.name}}</h1>
+
+{{#with (changeset @model.reservedAmounts this.newReservationValidation) as |changeset|}}
+  <UiForm @onSubmit={{perform this.addReservation}}
+          @changeSet={{changeset}}
+          as |form|>
+    {{#each @model.categories as |category|}}
+        <h2>{{category.name}}</h2>
+        {{#each category.items as |item|}}
+          <form.Group @for={{item.id}} as |group|>
+            <group.Label>
+              {{item.name}}
+            </group.Label>
+            <group.Input @type="number" />
+            <group.Error />
+          </form.Group>
+        {{/each}}
+    {{/each}}
+    <form.Submit>
+      {{t "save"}}
+    </form.Submit>
+  </UiForm>
+{{/with}}

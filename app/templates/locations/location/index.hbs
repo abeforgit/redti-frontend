@@ -3,6 +3,11 @@
         <h1 class="dib">
             {{@model.name}}
         </h1>
+        <LinkTo @route="initiatives.new" @query={{hash location=@model.id}} class="dib fr">
+          <Button type="button">
+            {{t "initiative.new"}}
+          </Button>
+        </LinkTo>
         <LinkTo @route="locations.location.edit" @model={{@model.id}} class="dib fr">
             <Button type="button">
                 {{t "edit"}}
@@ -12,11 +17,6 @@
     <p>
         {{@model.description}}
     </p>
-    <LinkTo @route="locations.location.transfers" @model={{@model.id}}>
-        <Button type="button">
-            {{t "location.goToTransfers"}}
-        </Button>
-    </LinkTo>
     <div class="pa3 ba bw1 flex justify-between">
         <div class="dib">
             <h3>
