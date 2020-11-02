@@ -1,5 +1,5 @@
 <Draggable @content={{@item.id}} @contentType="text/plain">
     <Sidebar::Link @route={{"items.item"}} @model={{@item.id}} ...attributes>
-        {{@item.name}}
+        {{default-value @item.name (t "noName")}}
     </Sidebar::Link>
 </Draggable>

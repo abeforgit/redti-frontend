@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1 class="dib">
-      {{@model.name}}
+      {{default-value @model.name (t "noName")}}
     </h1>
     <LinkTo @route="initiatives.initiative.edit" @model={{@model.id}} class="dib fr">
       <Button type="button">
@@ -9,19 +9,11 @@
       </Button>
     </LinkTo>
   </div>
-  {{#if @model.startDate}}
-    {{format-date @model.startDate day="numeric" month="long" year="numeric"}}
-  {{ else }}
-    {{t "initiative.startDateUnknown"}}
-  {{/if}}
+  {{if @model.startDate (format-date @model.startDate day="numeric" month="long" year="numeric") (t "initiative.startDateUnknown")}}
   -
-  {{#if @model.endDate}}
-    {{format-date @model.endDate day="numeric" month="long" year="numeric"}}
-  {{ else }}
-    {{t "initiative.endDateUnknown"}}
-  {{/if}}
+  {{if @model.endDate (format-date @model.endDate day="numeric" month="long" year="numeric") (t "initiative.endDateUnknown")}}
   <p>
-    {{@model.description}}
+    {{default-value @model.description (t "noDescription")}}
   </p>
   <div>
     <h2 class="dib">Reservaties</h2>
@@ -33,7 +25,7 @@
   </div>
   <ul>
     {{#each @model.reservations as |reservation|}}
-      <li>{{reservation.quantity}}x {{reservation.item.name}}</li>
+      <li>{{default-value reservation.quantity}}x {{default-value reservation.item.name (t "noName")}}</li>
     {{else}}
       <i>{{t "reservation.none"}}</i>
     {{/each}}

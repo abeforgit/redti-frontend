@@ -1,7 +1,7 @@
 <div>
     <div>
         <h1 class="dib">
-            {{@model.name}}
+            {{default-value @model.name (t "noName")}}
         </h1>
         <LinkTo @route="initiatives.new" @query={{hash location=@model.id}} class="dib fr">
           <Button type="button">
@@ -15,29 +15,33 @@
         </LinkTo>
     </div>
     <p>
-        {{@model.description}}
+        {{default-value @model.description (t "noDescription")}}
     </p>
     <div class="pa3 ba bw1 flex justify-between">
         <div class="dib">
             <h3>
-                {{@model.address.street}}
+                {{default-value @model.address.street (t "address.noStreet")}}
             </h3>
             <div>
-                {{@model.address.city}}
+                {{default-value @model.address.city (t "address.noCity")}}
             </div>
             <div>
                 <div>
-                    {{@model.address.postalCode}}
+                    {{default-value @model.address.postalCode (t "address.noPostalCode")}}
                 </div>
                 <div>
-                    {{@model.address.region}}
+                    {{default-value @model.address.region (t "address.noRegion")}}
                 </div>
             </div>
             <div>
-                {{@model.address.country}}
+                {{default-value @model.address.country (t "address.noCountry")}}
             </div>
         </div>
-        <LocationMap @location={{@model}} class="dib w-50"/>
+        {{#if @model.latitude}}
+          {{#if @model.longitude}}
+            <LocationMap @location={{@model}} class="dib w-50"/>
+          {{/if}}
+        {{/if}}
     </div>
 
 </div>

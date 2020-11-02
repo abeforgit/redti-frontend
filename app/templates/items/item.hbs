@@ -18,17 +18,19 @@
                         <span class="pa2 br bw1 w-100 tl">{{child.unit}}</span>
                     {{/unless}}
                 </div>
+            {{else}}
+              <i>{{t "item.noContent"}}</i>
             {{/each}}
         </div>
     {{/if}}
 
 </div>
 
-{{@model.category.name}}
+{{default-value @model.category.name (t "item.noCategory")}}
 
 {{#each @model.transfers as |transfer|}}
     <div>
-        {{transfer.to.name}}
+        {{default-value transfer.to.name (t "noName")}}
     </div>
 {{/each}}
 

@@ -11,6 +11,8 @@ item:
   maxQuantity: Aantal beschikbaar
   infinite: Ongeteld
   category: Categorie
+  noContent: Geen inhoud
+  noCategory: Geen categorie gegeven
 container:
   new: Nieuwe Container
   edit: Container bewerken
@@ -31,6 +33,11 @@ address:
   postalCode: Postcode
   region: Provincie
   country: Land
+  noStreet: Geen straat gegeven
+  noCity: Geen stad gegeven
+  noPostalCode: Geen postcode gegeven
+  noRegion: Geen provincie gegeven
+  noCountry: Geen land gegeven
 initiative:
   new: Nieuw initiatief
   name: Naam
@@ -53,3 +60,6 @@ edit: Bewerken
 cancel: Annuleren
 search: Zoeken
 noneSelected: Niets geselecteerd
+noDescription: Geen beschrijving gegeven
+noName: Geen naam gegeven
+noValue: onbekend
