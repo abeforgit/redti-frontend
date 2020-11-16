@@ -2,14 +2,14 @@
     <div>
 
         <h1 class="dib">
-            {{@model.name}}
+            {{default-value @model.name (t "noName")}}
         </h1>
         <LinkTo @route="items.item.edit" @model={{@model.id}} class="dib fr">
             <Button type="button">{{t "edit"}}</Button>
         </LinkTo>
     </div>
     <p>
-        {{@model.description}}
+        {{default-value @model.description (t "noDescription")}}
     </p>
     <div>
         <span>
